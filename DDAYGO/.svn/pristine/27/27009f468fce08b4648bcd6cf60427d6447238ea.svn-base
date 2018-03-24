@@ -1,0 +1,133 @@
+//
+//  ConfirmViewCell.m
+//  
+//
+//  Created by Login on 2017/9/20.
+//
+//
+
+#import "ConfirmViewCell.h"
+#import "PrefixHeader.pch"
+@implementation ConfirmViewCell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    
+    self = [super initWithStyle:style reuseIdentifier:@"confirmViewCell"];
+    if (self) {
+        [self initUI];
+    }
+    return self;
+}
+- (void)initUI {
+    
+//  收货人
+    UILabel * ConsigneeLabel = [UILabel new];
+    ConsigneeLabel.textAlignment = NSTextAlignmentLeft;
+    ConsigneeLabel.textColor = ZP_textblack;
+    ConsigneeLabel.text = NSLocalizedString(@"收货人: ", nil);
+    ConsigneeLabel.font = LB_stockFont;
+    [self addSubview:ConsigneeLabel];
+    [ConsigneeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(30); // 左
+        make.bottom.equalTo(self).offset(-70); //下
+    }];
+    _ConsigneeLabel = ConsigneeLabel;
+    
+//  名字
+    UILabel * NameLabel = [UILabel new];
+    NameLabel.textAlignment = NSTextAlignmentLeft;
+    NameLabel.textColor = ZP_textblack;
+    NameLabel.font = LB_stockFont;
+    [self.contentView addSubview:NameLabel];
+    [NameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(85);
+        make.bottom.equalTo(self).offset(-70);
+    }];
+    _NameLabel = NameLabel;
+    
+//  手机号码
+    UILabel * PhotoLabel = [UILabel new];
+    PhotoLabel.textAlignment = NSTextAlignmentLeft;
+    PhotoLabel.textColor = ZP_textblack;
+    PhotoLabel.font = LB_stockFont;
+    [self.contentView addSubview:PhotoLabel];
+    [PhotoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self).offset(-20); // 右
+        make.bottom.equalTo(self).offset(-70); //下
+    }];
+    
+    _PhotoLabel = PhotoLabel;
+    
+//  定位图标
+    UIImageView * addressImage = [UIImageView new];
+    [self.contentView addSubview:addressImage];
+    [addressImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(5);
+        make.bottom.equalTo(self).offset(-40);
+        make.width.mas_equalTo(15);
+        make.height.mas_equalTo(20);
+        
+    }];
+    _addressImage = addressImage;
+    
+//  收货地址
+    UILabel * AddressLabel = [UILabel new];
+    AddressLabel.textAlignment = NSTextAlignmentLeft;
+    AddressLabel.textColor = ZP_textblack;
+    AddressLabel.text = NSLocalizedString(@"收货地址: ", nil);
+    AddressLabel.font = titleFont;
+    [self.contentView addSubview:AddressLabel];
+    [AddressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(30);
+        make.bottom.equalTo(self).offset(-50);
+    }];
+    _AddressLabel = AddressLabel;
+    
+//  地址
+    UILabel * AddressdetailsLabel = [UILabel new];
+    AddressdetailsLabel.textAlignment = NSTextAlignmentLeft;
+    AddressLabel.textColor = ZP_textblack;
+    AddressdetailsLabel.numberOfLines = 0;
+    AddressdetailsLabel.lineBreakMode = UILineBreakModeWordWrap; //文字分行
+    AddressdetailsLabel.font = titleFont;
+    [self.contentView addSubview:AddressdetailsLabel];
+    [AddressdetailsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(85);
+        make.top.equalTo(self).offset(35);
+        make.right.equalTo(self).offset(-30);
+    }];
+    _AddressdetailsLabel = AddressdetailsLabel;
+    
+//  箭头
+    UIImageView * ArrowImage = [UIImageView new];
+    [self.contentView addSubview:ArrowImage];
+    [ArrowImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self).offset(-15);
+        make.bottom.equalTo(self).offset(-40);
+        make.width.mas_equalTo(15);
+        make.height.mas_equalTo(25);
+    }];
+    _ArrowImage = ArrowImage;
+    
+//  横线彩条
+    UIImageView * CrossImage = [UIImageView new];
+    [self.contentView addSubview:CrossImage];
+    [CrossImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(0);
+        make.bottom.equalTo(self).offset(0);
+        make.height.mas_equalTo(2.5);
+        make.width.mas_equalTo(ZP_Width);
+    }];
+    _CrossImage = CrossImage;
+}
+
+- (void)cellWithDic:(NSDictionary *)dic {
+    
+    _NameLabel.text = dic[@"Name"];
+    _PhotoLabel.text = dic[@"Phone"];
+    _addressImage.image = [UIImage imageNamed:@"ic_order_address"];
+    _AddressdetailsLabel.text = dic[@"Addressdetails"];
+    _ArrowImage.image = [UIImage imageNamed:@"ic_forward"];
+    _CrossImage.image = [UIImage imageNamed:@"img_order_stripe"];
+}
+@end

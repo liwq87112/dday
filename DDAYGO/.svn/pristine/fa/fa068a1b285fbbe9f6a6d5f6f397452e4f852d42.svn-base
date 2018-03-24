@@ -1,0 +1,237 @@
+//
+//  ConfirmViewController.m
+//  DDAYGO
+//
+//  Created by Login on 2017/9/20.
+//  Copyright © 2017年 Summer. All rights reserved.
+//
+
+#import "ConfirmViewController.h"
+#import "ConfirmViewCell.h"
+#import "InformationCell.h"
+#import "AnonymityViewCell.h"
+#import "ConfirmPayView.h"
+#import "PayPassController.h"
+#import "PayFailController.h"
+#import "PrefixHeader.pch"
+@interface ConfirmViewController () <UITableViewDelegate, UITableViewDataSource> {
+    
+    NSArray * dataArrar;
+    NSArray * InformatonArray;
+    
+}
+
+@property(nonatomic,strong)UITableView *tableView;
+
+@end
+
+@implementation ConfirmViewController
+
+- (void)viewDidLoad {
+    [self initUI];
+    [self ImmobilizationView];
+    self.title = @"确认订单";
+     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
+    dataArrar = @[@{@"Name":@"张鹏",@"Phone":@"+ 8615118041624",@"Address":@"ic_order_address@2x",@"Addressdetails":@"台湾省桃园市大兴西路二段台湾省桃园市大兴西路二段",@"Arrow":@"ic_forward@2x"}];
+    InformatonArray = @[@{@"merchants":@"阿芙专卖店",@"title":@"Valvola法莫拉天然植物萃取保加利亚玫瑰纯露200ml",@"Preferential":@"RMB:100.00",@"desc":@"250ml升级装",@"Price":@"￥80.00",@"Trademark":@"666",@"Quantiy":@"36",@"Cost":@"300.00",@"Computations":@"600.00"}];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
+    
+}
+
+- (void)initUI {
+    
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, ZP_height-49) style:UITableViewStylePlain];
+    self.tableView.backgroundColor = ZP_Graybackground;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+    
+//  注册
+    [self.tableView registerClass:[ConfirmViewCell class] forCellReuseIdentifier:@"confirmViewCell"];
+    [self.tableView registerClass:[InformationCell class] forCellReuseIdentifier:@"informationCell"];
+    [self.tableView registerClass:[AnonymityViewCell class] forCellReuseIdentifier:@"anonymity"];
+
+}
+
+- (void)ImmobilizationView {
+    
+    UIView * bottomView = [UIView new];
+    bottomView.backgroundColor = ZP_textWite;
+    [self.view addSubview:bottomView];
+    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view).offset(0); //下
+        make.left.equalTo(self.view).offset(0); //左
+        make.right.equalTo(self.view).offset(0); // 右
+        make.height.mas_equalTo(50); // 高
+    }];
+    
+//  合计
+    UILabel * StatisticsLabel = [UILabel new];
+    StatisticsLabel.textAlignment = NSTextAlignmentLeft;
+    StatisticsLabel.text = NSLocalizedString(@"合计:", nil);
+    StatisticsLabel.textColor = TypefaceColor;
+    StatisticsLabel.font = TooBarFont;
+    [bottomView addSubview:StatisticsLabel];
+    [StatisticsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(110); // 左
+        make.bottom.equalTo(self.view).offset(-20); // 下
+    }];
+    _StatisticsLabel = StatisticsLabel;
+    
+//  总金额
+    UILabel * PriceLabel = [UILabel new];
+    PriceLabel.textAlignment = NSTextAlignmentLeft;
+    PriceLabel.textColor = ZP_WhiteColor;
+//    PriceLabel.text = @"0.00";
+    PriceLabel.font = TooBarFont;
+    [bottomView addSubview:PriceLabel];
+    [PriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(145); // 左
+        make.bottom.equalTo(self.view).offset(-20); // 下
+    }];
+    _PriceLabel = PriceLabel;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSDictionary * dic = InformatonArray[0];
+        CGFloat f = [[dic[@"Preferential"] stringByReplacingOccurrencesOfString:@"RMB:" withString:@""] floatValue];
+        CGFloat r = [dic[@"Cost"] floatValue];
+        _PriceLabel.text = [NSString stringWithFormat:@"%.2f",f* [dic[@"Quantiy"] floatValue] + r];
+        
+    });
+//  结算按钮
+    UIButton * ClearingBut = [UIButton new];
+    ClearingBut.backgroundColor = [UIColor redColor];
+    [ClearingBut setTitle:NSLocalizedString(@"提交订单", nil) forState:UIControlStateNormal];
+    ClearingBut.titleLabel.font = TooBarFont;
+    [ClearingBut addTarget:self action:@selector(ClearingBut:) forControlEvents:UIControlEventTouchUpInside];
+    [bottomView addSubview:ClearingBut];
+    [ClearingBut mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(240); // 左
+        make.right.equalTo(self.view).offset(0);  // 右
+        make.bottom.equalTo(self.view).offset(0); // 下
+        make.height.mas_equalTo(50); // 高度
+    }];
+    _ClearingBut = ClearingBut;
+    [self.view addSubview:bottomView];
+}
+
+//  组头
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section ==1) {
+        return 10;
+    }else if (section == 2) {
+        return 10;
+    }else {
+        return 0;
+    }
+}
+
+
+
+- (void)ClearingBut:(UIButton *)sender {
+    ConfirmPayView * PayView = [[ConfirmPayView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    
+    if (sender.selected == 0) {
+//    显示
+        PayView.confirmPayBlock = ^(id response) {
+            NSLog(@"the result is");
+            self.hidesBottomBarWhenPushed = YES;
+            PayPassController * paypass = [[PayPassController alloc]init];
+            [self.navigationController pushViewController:paypass animated:YES];
+            self.hidesBottomBarWhenPushed = YES;
+        };
+    }else if (sender.selected == 1) {
+//    显示
+        PayView.PayFailBlock = ^(id response) {
+            
+            NSLog(@"the result is");
+            self.hidesBottomBarWhenPushed = YES;
+            PayFailController * PayFail = [[PayFailController alloc]init];
+            [self.navigationController pushViewController:PayFail animated:YES];
+            self.hidesBottomBarWhenPushed = YES;
+        };
+    }
+    [PayView showInView:self.view];
+    NSLog(@"提交订单");
+}
+
+#pragma Mark - TableViewDelegate
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return 3;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return dataArrar.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 0) {
+    static NSString * ID = @"confirmViewCell";
+    ConfirmViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    NSDictionary * dic = dataArrar[indexPath.row];
+    [cell cellWithDic:dic];
+    return cell;
+        
+    }else if (indexPath.section == 1){
+        
+    static NSString * ID = @"informationCell";
+        InformationCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
+        self.tableView.tableFooterView = [[UIView alloc]init];
+        NSDictionary * dic = InformatonArray[indexPath.row];
+        [cell InformationWithDic:dic];
+        return cell;
+        
+    }else{
+        
+        static NSString * AnonymityID = @"anonymity";
+        AnonymityViewCell * cell = [tableView dequeueReusableCellWithIdentifier:AnonymityID];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
+        [cell.AnonymousButton removeTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.AnonymousButton addTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
+
+        return cell;
+    }
+}
+- (void)selectClick:(UIButton *)sup {
+    
+    if (sup.selected == 0) {
+        NSLog(@"取消");
+    }else if (sup.selected == 1) {
+        NSLog(@"选中");
+    }
+    
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 0) {
+        
+        return 100;
+        
+    }else if (indexPath.section == 1){
+        
+        return 240;
+        
+    }else {
+        
+        return 45;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    NSLog(@"点击了第%ld个cell",(long)indexPath.row);
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+}
+@end

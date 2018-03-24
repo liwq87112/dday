@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ForgetPswController">
+            <connections>
+                <outlet property="DetermineBut" destination="kJa-0e-23V" id="slR-vf-bbt"/>
+                <outlet property="ForgetPswscrollView" destination="kBY-oE-d25" id="T2b-Hd-am6"/>
+                <outlet property="ZPCodeTextField" destination="NSX-zq-gr8" id="aT7-kP-bHG"/>
+                <outlet property="ZPConPswTextField" destination="eRg-7k-H40" id="iHT-bc-QjK"/>
+                <outlet property="ZPEmailTextField" destination="tnd-Uf-2NE" id="ofK-BS-qSe"/>
+                <outlet property="ZPPswTextField" destination="4bT-Yy-IRF" id="Yez-Fg-tBP"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kBY-oE-d25">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帳號：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4L-Uq-Mha">
+                            <rect key="frame" x="20" y="28" width="52" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tnd-Uf-2NE" customClass="TextView">
+                            <rect key="frame" x="40" y="50" width="272" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="NXI-F1-cRc"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="showBtn" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="secureTextEntry" value="NO"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="titleStr" value="请输入账号"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="驗證碼：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTz-Xy-Ym9">
+                            <rect key="frame" x="20" y="100" width="70" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NSX-zq-gr8" customClass="TextView">
+                            <rect key="frame" x="40" y="125" width="272" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="5Ts-d9-N2H"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="titleStr" value="请输入验证码"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新密碼:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUl-ga-Gvv">
+                            <rect key="frame" x="20" y="175" width="58" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="58" id="vQE-mY-haV"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4bT-Yy-IRF" customClass="TextView">
+                            <rect key="frame" x="40" y="199" width="272" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="dfO-Mr-jJQ"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="showBtn" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="secureTextEntry" value="YES"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="titleStr" value="请输入6-20位之间的英数字"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="確認新密碼：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WjN-vY-m0T">
+                            <rect key="frame" x="20" y="245" width="104" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRg-7k-H40" customClass="TextView">
+                            <rect key="frame" x="40" y="270" width="272" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="ONe-GL-6d7"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="showBtn" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="secureTextEntry" value="YES"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="titleStr" value="请输入6-20位之间的英数字"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJa-0e-23V">
+                            <rect key="frame" x="20" y="403" width="279" height="35"/>
+                            <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="Nuz-J5-UXs"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="確定">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="DetermineBut:" destination="-1" eventType="touchUpInside" id="KD1-ck-uAm"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="oTz-Xy-Ym9" firstAttribute="leading" secondItem="GUl-ga-Gvv" secondAttribute="leading" id="0nY-Rb-GmV"/>
+                        <constraint firstItem="tnd-Uf-2NE" firstAttribute="trailing" secondItem="NSX-zq-gr8" secondAttribute="trailing" id="1Si-hN-3Nn"/>
+                        <constraint firstItem="tnd-Uf-2NE" firstAttribute="trailing" secondItem="kBY-oE-d25" secondAttribute="trailingMargin" id="2OZ-hf-y12"/>
+                        <constraint firstItem="d4L-Uq-Mha" firstAttribute="leading" secondItem="oTz-Xy-Ym9" secondAttribute="leading" id="4io-cA-9Dy"/>
+                        <constraint firstItem="4bT-Yy-IRF" firstAttribute="top" secondItem="GUl-ga-Gvv" secondAttribute="bottom" constant="4" id="AZx-Ei-8Cr"/>
+                        <constraint firstAttribute="trailing" secondItem="kJa-0e-23V" secondAttribute="trailing" constant="21" id="BSj-LY-au8"/>
+                        <constraint firstItem="NSX-zq-gr8" firstAttribute="top" secondItem="oTz-Xy-Ym9" secondAttribute="bottom" constant="5" id="Bde-Ai-0VT"/>
+                        <constraint firstItem="oTz-Xy-Ym9" firstAttribute="top" secondItem="tnd-Uf-2NE" secondAttribute="bottom" constant="20" id="EOd-N0-Uee"/>
+                        <constraint firstAttribute="bottom" secondItem="kJa-0e-23V" secondAttribute="bottom" constant="130" id="G3f-q7-XmG"/>
+                        <constraint firstItem="d4L-Uq-Mha" firstAttribute="leading" secondItem="kBY-oE-d25" secondAttribute="leading" constant="20" id="GtF-Oz-non"/>
+                        <constraint firstItem="GUl-ga-Gvv" firstAttribute="leading" secondItem="WjN-vY-m0T" secondAttribute="leading" id="Nux-wc-VXw"/>
+                        <constraint firstItem="WjN-vY-m0T" firstAttribute="top" secondItem="4bT-Yy-IRF" secondAttribute="bottom" constant="16" id="PE7-gc-0ia"/>
+                        <constraint firstItem="eRg-7k-H40" firstAttribute="top" secondItem="WjN-vY-m0T" secondAttribute="bottom" constant="5" id="Qzh-6D-dRU"/>
+                        <constraint firstItem="4bT-Yy-IRF" firstAttribute="leading" secondItem="eRg-7k-H40" secondAttribute="leading" id="RpC-P8-QSU"/>
+                        <constraint firstItem="GUl-ga-Gvv" firstAttribute="top" secondItem="NSX-zq-gr8" secondAttribute="bottom" constant="20" id="RyN-2R-zbd"/>
+                        <constraint firstItem="4bT-Yy-IRF" firstAttribute="trailing" secondItem="eRg-7k-H40" secondAttribute="trailing" id="VOb-6D-OH8"/>
+                        <constraint firstItem="tnd-Uf-2NE" firstAttribute="leading" secondItem="kBY-oE-d25" secondAttribute="leading" constant="40" id="bEZ-fM-d69"/>
+                        <constraint firstItem="kJa-0e-23V" firstAttribute="top" secondItem="kBY-oE-d25" secondAttribute="top" constant="403" id="bhP-hH-N3V"/>
+                        <constraint firstItem="d4L-Uq-Mha" firstAttribute="top" secondItem="kBY-oE-d25" secondAttribute="topMargin" id="d9V-Ht-wry"/>
+                        <constraint firstItem="NSX-zq-gr8" firstAttribute="trailing" secondItem="4bT-Yy-IRF" secondAttribute="trailing" id="dgd-W7-oi0"/>
+                        <constraint firstItem="WjN-vY-m0T" firstAttribute="leading" secondItem="kJa-0e-23V" secondAttribute="leading" id="ed4-eh-A0a"/>
+                        <constraint firstItem="tnd-Uf-2NE" firstAttribute="top" secondItem="d4L-Uq-Mha" secondAttribute="bottom" constant="2" id="rnm-fH-Wc5"/>
+                        <constraint firstItem="NSX-zq-gr8" firstAttribute="leading" secondItem="4bT-Yy-IRF" secondAttribute="leading" id="u6h-DG-OR1"/>
+                        <constraint firstItem="tnd-Uf-2NE" firstAttribute="leading" secondItem="NSX-zq-gr8" secondAttribute="leading" id="wzj-Z0-UOX"/>
+                        <constraint firstItem="kJa-0e-23V" firstAttribute="centerX" secondItem="kBY-oE-d25" secondAttribute="centerX" id="ytm-Z0-qDS"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="kBY-oE-d25" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Z2M-ug-a8D"/>
+                <constraint firstItem="kBY-oE-d25" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="p06-Aw-DYs"/>
+                <constraint firstAttribute="bottom" secondItem="kBY-oE-d25" secondAttribute="bottom" id="tWI-SJ-F9j"/>
+                <constraint firstAttribute="trailing" secondItem="kBY-oE-d25" secondAttribute="trailing" id="vMo-kx-3nJ"/>
+            </constraints>
+            <point key="canvasLocation" x="34" y="54"/>
+        </view>
+    </objects>
+</document>

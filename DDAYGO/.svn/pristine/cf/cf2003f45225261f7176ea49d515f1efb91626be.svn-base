@@ -1,0 +1,77 @@
+//
+//  FifthViewCell.m
+//  DDAYGO
+//
+//  Created by Login on 2017/9/12.
+//  Copyright © 2017年 Summer. All rights reserved.
+//
+
+#import "FifthViewCell.h"
+#import "PrefixHeader.pch"
+#import "ReuseCollectionViewCell.h"
+#import "UINavigationBar+Awesome.h"
+@interface FifthViewCell () <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+
+@property (nonatomic,strong)UICollectionView *bottomCV;
+@property (nonatomic, strong) NSArray * array;
+
+@end
+@implementation FifthViewCell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:@"ceaaa"];
+    if (self) {
+        
+        [self addSubViews];
+        
+    }
+    return self;
+}
+- (void)addSubViews {
+    NSDictionary * dic = @{@"image":@"Fifth",@"title":@"大尺码 吸汗排湿 圆领T恤 短袖...",@"Preferential":@"RMB:888.88",@"price":@"RMB:888.88",@"Trademark":@"6666"};
+    _array = @[dic,dic,dic,dic,dic,dic];
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc ]init];
+    layout.minimumLineSpacing = 1;
+    layout.minimumInteritemSpacing = 1;
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;  //横向滚动 默认上下
+    UICollectionView *bottomCV = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, ZP_Width, 150) collectionViewLayout:layout];
+    bottomCV.backgroundColor = [UIColor whiteColor];
+    
+    bottomCV.delegate = self;
+    bottomCV.dataSource = self;
+    
+    [self addSubview:bottomCV];
+    self.bottomCV = bottomCV;
+    [bottomCV registerClass:[ReuseCollectionViewCell class] forCellWithReuseIdentifier:@"Cells"];
+}
+
+
+#pragma mark <UICollectionViewDataSource>
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    
+    return _array.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    ReuseCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cells" forIndexPath:indexPath];
+    NSDictionary * dic = _array[indexPath.row];
+    [cell cellWithdic:dic];
+    
+    return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    //    ZPHomeCell * Detailed = [[ZPHomeCell alloc]initWithNibName:@"DetailedController" bundle:nil];
+    //    [self.navigationController pushViewController:Detailed animated:YES];
+    NSLog(@"选中%ld",(long)indexPath.item);
+}
+
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return CGSizeMake(ZP_Width/4-1, 150);
+}
+
+@end

@@ -1,0 +1,96 @@
+//
+//  DialogBox.m
+//  DDAYGO
+//
+//  Created by Login on 2017/9/22.
+//  Copyright © 2017年 Summer. All rights reserved.
+//
+
+#import "DialogBox.h"
+
+@implementation DialogBox
+
++ (DialogBox *)getInstance  //定义一个类方法进行访问(便利构造)
+{
+    static DialogBox *audioOption=nil;
+    static dispatch_once_t oncet;
+    dispatch_once(&oncet,^{
+        audioOption = [[NSBundle mainBundle] loadNibNamed:@"DialogBox" owner:self options:nil].lastObject;
+        audioOption.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    });
+    if ([UIApplication sharedApplication].keyWindow) {
+        [[UIApplication sharedApplication].keyWindow addSubview:audioOption];
+    }
+    return  audioOption;
+}
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
+    self.BGView.userInteractionEnabled = YES;
+    [self.BGView addGestureRecognizer:tap];
+    self.hidden = YES;
+}
+
+- (IBAction)cancelAction:(id)sender {
+    
+    [self dismiss];
+}
+
+- (IBAction)ensureAction:(id)sender {
+    if (self.finishBlock) {
+        self.finishBlock(nil);
+    }
+    [self dismiss];
+}
+- (IBAction)icucEnsure:(id)sender {
+    [self dismiss];
+}
+
+- (void)showDialogBoxWithOperation:(DDAOperation)operation FinishBlock:(FinishBlock)finishBlock {
+    
+    self.finishBlock = finishBlock;
+    
+    switch (operation) {
+        case DDAModifyNickname:
+        {
+            self.icucView.hidden = YES;
+        }
+            break;
+        case DDABuildingICUC:
+        {
+            self.icucView.hidden = NO;
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    [self show];
+}
+
+- (void)show {
+    self.hidden = NO;
+    self.BGView.alpha = 0;
+    self.dialogView.alpha = 0;
+    [UIView animateWithDuration:.3f animations:^{
+        self.BGView.alpha = 0.5;
+        self.dialogView.alpha = 1;
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+- (void)dismiss {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:.3f animations:^{
+            self.BGView.alpha = 0;
+            self.dialogView.alpha = 0;
+        } completion:^(BOOL finished) {
+            self.hidden = YES;
+        }];
+    });
+}
+
+@end

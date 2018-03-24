@@ -1,0 +1,23 @@
+//
+//  AddressTableViewCell.m
+//  DDAYGO
+//
+//  Created by Login on 2017/9/22.
+//  Copyright © 2017年 Summer. All rights reserved.
+//
+
+#import "AddressTableViewCell.h"
+
+@implementation AddressTableViewCell
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    // Initialization code
+}
+- (IBAction)editAction:(id)sender {
+    if (self.finishBlock) {
+        self.finishBlock(nil);
+    }
+}
+
+@end

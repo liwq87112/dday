@@ -1,0 +1,81 @@
+//
+//  CPCollectionViewCell.m
+//  DDAYGO
+//
+//  Created by Login on 2017/9/14.
+//  Copyright © 2017年 Summer. All rights reserved.
+//
+
+#import "CPCollectionViewCell.h"
+#import "PrefixHeader.pch"
+
+@implementation CPCollectionViewCell
+- (instancetype)initWithFrame:(CGRect)frame {
+    
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self initUI];
+    }
+    return self;
+}
+- (void)initUI {
+//    图片
+    self.backgroundColor = [UIColor whiteColor];
+    self.imageView = [[UIImageView alloc]initWithFrame:CGRectMake(5, 0, CGRectGetWidth(self.frame)- 10, CGRectGetWidth(self.frame)-10)];
+    self.imageView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [self addSubview:self.imageView];
+    
+//    标题
+    self.headerlabel = [[UILabel alloc]initWithFrame:CGRectMake(5, CGRectGetWidth(self.frame)- 10, CGRectGetWidth(self.frame)-10, 20)];
+    self.headerlabel.textColor = TypefaceColor;
+    self.headerlabel.lineBreakMode = UILineBreakModeWordWrap;
+    self.headerlabel.numberOfLines = 0;
+    self.headerlabel.font = titleFont;
+    self.headerlabel.textAlignment = NSTextAlignmentLeft;
+    [self addSubview:self.headerlabel];
+    
+//    优惠价格
+    self.preferentialLabel = [[UILabel alloc]initWithFrame:CGRectMake(5, CGRectGetWidth(self.frame)+ 10, CGRectGetWidth(self.frame) - 50, 20)];
+    self.preferentialLabel.font = titleFont;
+    self.preferentialLabel.textColor = ZP_WhiteColor;
+    self.preferentialLabel.textAlignment = NSTextAlignmentLeft;
+    [self addSubview:self.preferentialLabel];
+    
+//    价格
+    self.priceLabel = [[UILabel alloc]initWithFrame:CGRectMake(5, CGRectGetWidth(self.frame)+ 25, CGRectGetWidth(self.frame) - 65, 20)];
+    self.priceLabel.textColor = TypefaceColor;
+    self.priceLabel.font = TrademarkFont;
+    self.priceLabel.textAlignment = NSTextAlignmentLeft;
+    [self.contentView addSubview:self.priceLabel];
+    
+//   横线
+    UIView * backView = [[UIView alloc]initWithFrame:CGRectMake(5, CGRectGetWidth(self.frame)+ 35, 70, 1.5)];
+    backView.backgroundColor = TypefaceColor;
+    [self.contentView addSubview:backView];
+    
+//   商标
+    UIImageView * TrademarkImage = [[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetWidth(self.frame)- 55, CGRectGetWidth(self.frame)+ 25, 22*0.66, 20-5)];
+    TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
+    [self.contentView addSubview:TrademarkImage];
+    
+//   商标编号
+    UILabel * TrademarkLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetWidth(self.frame) - 40, CGRectGetWidth(self.frame)+ 23,CGRectGetWidth(self.frame)- 120, 20)];
+    TrademarkLabel.textAlignment = NSTextAlignmentLeft;
+    TrademarkLabel.textColor = ZP_textblack;
+    TrademarkLabel.font = [UIFont systemFontOfSize:10];
+    [self.contentView addSubview:TrademarkLabel];
+    _TrademarkLabel = TrademarkLabel;
+    
+}
+
+- (void)cellWithdic:(NSDictionary *)dic {
+    
+    _imageView.image = [UIImage imageNamed:dic[@"image"]];
+    _headerlabel.text = dic[@"header"];
+    _preferentialLabel.text = dic[@"preferentia"];
+    _priceLabel.text = dic[@"price"];
+    _TrademarkLabel.text = dic[@"Trademark"];
+    
+}
+
+@end

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="BillTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ymz-37-4Mc">
+                        <rect key="frame" x="16" y="69.5" width="304" height="0.5"/>
+                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="3GJ-EX-U8q"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TVX-e9-bjm">
+                        <rect key="frame" x="16" y="10" width="50" height="50"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="NOc-x5-FK2"/>
+                            <constraint firstAttribute="height" constant="50" id="aC1-00-OCc"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-09-25  10:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePd-G3-wRw">
+                        <rect key="frame" x="82" y="31" width="222" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+RMB 630" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cg5-zM-hAq">
+                        <rect key="frame" x="212" y="8" width="100" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="Lky-8o-HRs"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valvola法莫拉天然植物萃取保加利亚玫瑰纯露200ml" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBz-V5-fLd">
+                        <rect key="frame" x="82" y="10" width="122" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="RBz-V5-fLd" firstAttribute="centerY" secondItem="cg5-zM-hAq" secondAttribute="centerY" id="3Nw-xu-7xT"/>
+                    <constraint firstItem="Ymz-37-4Mc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="46S-rC-OrK"/>
+                    <constraint firstItem="cg5-zM-hAq" firstAttribute="leading" secondItem="RBz-V5-fLd" secondAttribute="trailing" constant="8" id="4rf-s9-bm3"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ePd-G3-wRw" secondAttribute="trailing" constant="8" id="8Ac-Ck-xQ7"/>
+                    <constraint firstItem="cg5-zM-hAq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="AYF-xk-2hC"/>
+                    <constraint firstItem="TVX-e9-bjm" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IyF-rZ-NOs"/>
+                    <constraint firstItem="ePd-G3-wRw" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="5" id="Xeq-Si-qOy"/>
+                    <constraint firstAttribute="trailing" secondItem="Ymz-37-4Mc" secondAttribute="trailing" id="e4C-Vs-EAt"/>
+                    <constraint firstItem="ePd-G3-wRw" firstAttribute="leading" secondItem="TVX-e9-bjm" secondAttribute="trailing" constant="16" id="g8m-cv-HUD"/>
+                    <constraint firstItem="RBz-V5-fLd" firstAttribute="leading" secondItem="TVX-e9-bjm" secondAttribute="trailing" constant="16" id="khA-sy-hdO"/>
+                    <constraint firstAttribute="bottom" secondItem="Ymz-37-4Mc" secondAttribute="bottom" id="ogR-cu-tVo"/>
+                    <constraint firstItem="TVX-e9-bjm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="pxX-Xm-ZzE"/>
+                    <constraint firstItem="cg5-zM-hAq" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="vKF-IR-jxb"/>
+                </constraints>
+            </tableViewCellContentView>
+        </tableViewCell>
+    </objects>
+</document>

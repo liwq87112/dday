@@ -1,0 +1,144 @@
+//
+//  DataInterface.pch
+//  DDAYGO
+//
+//  Created by Summer on 2017/10/24.
+//  Copyright © 2017年 Summer. All rights reserved.
+//
+
+#ifndef DataInterface_pch
+#define DataInterface_pch
+
+//#define URLAPI @"http://www.cuspstore.com/navigationWebserver/"
+//#define URLAPI @"http://j160o52501.imwork.net:10607/navigationWebserver/"
+//内网
+//#define URLAPI @"http://192.168.0.234:8080/navigationWebserver/"
+//轮播接口
+//#define ImgAPI @"home/res"
+//
+//#define PageAPI @"home/recommend"
+
+//首页按钮
+//#define ItemAPI @"home/nav"
+//所有商品
+//#define AllDataAPI @"classify/list"
+//分类详细借口
+//#define ClassDetailAPI @"list/brand"
+//热销
+//#define HotCakesAPI @"home/product"
+//新品发布详情
+//#define NewsReleaseAPI @"classify/roll"
+//热销详情
+//#define HotAPI @"list/"
+//广告图
+//#define AdvertisingAPI @"home/advertisement"
+//首页活动
+//#define HomeActivityAPI @"home/homeActivity"
+//一元抢导航
+//#define OneYuanAPI @"home/OneYuan"
+//参与记录
+//#define OneYuanRecordAPI @"/home/OneYuan/record"
+//签到
+//#define SignInAPI @"my/sign/in"
+//记录
+//#define RecordAPI @"my/activity/info"
+//揭晓
+//#define AnnouncedAPI @"my/activity/result"
+//发送抽奖信息
+//#define LuckyDrawInfoAPI @"my/draw/coupon"
+//新人专享
+//#define FirstChanLiMinusAPI @"list/activity"
+//抽奖码
+//#define LotteryYardsAPI @"my/user/draw"
+//登录
+//#define LoginUserAPI   @"user/"
+//购物车
+//#define ShoppingCarAPI @"shopping/list"
+//注册
+//#define RegistUserAPI @"user/s"
+//新闻列表
+//#define NewsAPI @"home/news"
+//新品推荐
+//#define NewProductAPI @"list/"
+//添加头像
+//#define UploadPicture @"my/picture"
+//收藏列表
+//#define CollectGoods @"my/collect/list"
+//传地址
+//#define SendAddress @"my/location/add"
+//获取地址
+//#define RequestAddress @"my/location/page"
+//查找地址
+//#define ToFindAPI @"my/location/query"
+//添加收藏
+//#define AddCollectionAPI @"my/collect/add"
+//移除收藏
+//#define RemoveCollection @"my/collect/del"
+//搜索
+//#define searchAPI @"list/query"
+//下单
+//#define postOrderAPI @"orders/add"
+//一元购下单
+//#define OneYuanOrderAPI @"orders/activity/add"
+
+//所有订单
+//#define orderListAPI @"my/orders"
+//待付款
+//#define orderPaymentAPI @"orders/payment"
+//待发货
+//#define orderShipmentsAPI @"orders/shipments"
+//待收货
+//#define orderDeliveryAPI @"orders/delivery"
+//删除订单
+//#define orderDeleteOrdersAPI @"orders/deleteOrders"
+//取消订单
+//#define orderCancelOrdersAPI @"orders/updateOrdersStatus"
+//完善资料
+//#define userInfoAPI @"my/updateUser"
+//设为默认地址
+//#define updateAdsAPI @"my/location/update"
+//获取默认地址
+//#define defaultAdsAPI @"my/location/default"
+//获取对方用户名和头像
+//#define otherInfoAPI @"home/user"
+//获取客服列表
+//#define customerListAPI @"home/customerCare"
+//获取用户持有优惠券
+//#define mycouponAPI @"my/coupon"
+//效果开关
+//#define lunarAPI @"home/lunar"
+
+//售后电话
+//#define phonePSW @"123123123"
+//客服电话
+//#define KeFuStr @"+8618719050380"
+
+//mob share
+//#define MobShareAppKey      @"188dcff82d554"
+//#define MobShareAppSecret   @"44b52c1b41faab550b464a937d171d56"
+
+//umeng app key
+//#define UmengAppKey @"582bd9b36e27a45f9c0000fc"
+
+//腾讯开发者平台
+//#define tencentAppID @"1105729635"
+//#define tencentAppKey @"Bg3e0ySOUTkVmWrh"
+
+//微信开发者平台
+//#define wxAppKey    @"wx2a88af160f4ff850"
+//#define wxAPPSecret  @"26b6eba7b66c870b664a8f7cd75187ef"
+
+//微博开发者平台
+//#define sinaAppID @"1261734393"
+//#define sinaAppKey @"iLY2yVY4oFHGJ6OD"
+
+//极光推送
+//#define jpushAppkey    @"898041c20eb1fdd3601b8520"
+
+//环信开发者平台
+//#define hyphenateAppKey @"1189161227115490#cusp"
+
+//环信开发者证书名
+//#define hyapnsCertName @"CUSPiOSDevelopment"
+
+#endif /* DataInterface_pch */

@@ -1,0 +1,381 @@
+//
+//  OrderViewCell.m
+//  DDAYGO
+//
+//  Created by Login on 2017/9/21.
+//  Copyright © 2017年 Summer. All rights reserved.
+//
+
+#import "OrderViewCell.h"
+#import "PrefixHeader.pch"
+#import "LogistcsController.h"
+#import "AppraiseController.h"
+@implementation OrderViewCell
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:@"orderViewCell"];
+    if (self) {
+        
+        [self initUI];
+    }
+    return self;
+}
+- (void) initUI {
+    
+//  订单Name
+    UILabel * OrderLabel = [UILabel new];
+    OrderLabel.textAlignment = NSTextAlignmentLeft;
+    OrderLabel.textColor = ZP_textblack;
+    OrderLabel.text = NSLocalizedString(@"订单号:", nil);
+    OrderLabel.font = titleFont;
+    [self.contentView addSubview:OrderLabel];
+    [OrderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(5);
+        make.top.equalTo(self).offset(5);
+    }];
+    _OrderLabel = OrderLabel;
+    
+//  ID号
+    UILabel * IDLabel = [UILabel new];
+    IDLabel.textAlignment = NSTextAlignmentLeft;
+    IDLabel.textColor = ZP_textblack;
+    IDLabel.font = titleFont;
+    [self.contentView addSubview:IDLabel];
+    [IDLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(55);
+        make.top.equalTo(self).offset(5);
+    }];
+    _IDLabel = IDLabel;
+    
+//  日期
+    UILabel * DateLabel = [UILabel new];
+    DateLabel.textAlignment = NSTextAlignmentLeft;
+    DateLabel.textColor = ZP_textblack;
+    DateLabel.font = introduceFont;
+    [self.contentView addSubview:DateLabel];
+    [DateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(5);
+        make.top.equalTo(self).offset(20);
+    }];
+    _DateLabel = DateLabel;
+    
+//  时间
+    UILabel * TimeLabel = [UILabel new];
+    TimeLabel.textAlignment = NSTextAlignmentLeft;
+    TimeLabel.textColor = ZP_textblack;
+    TimeLabel.font = introduceFont;
+    [self.contentView addSubview:TimeLabel];
+    [TimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(75);
+        make.top.equalTo(self).offset(20);
+    }];
+    _TimeLabel = TimeLabel;
+    
+//  交易成功
+    UILabel * TradingLabel = [UILabel new];
+    TradingLabel.textAlignment = NSTextAlignmentLeft;
+    TradingLabel.textColor = typefaceOrangeColor;
+    TradingLabel.text = NSLocalizedString(@"交易成功:", nil);
+    TradingLabel.font = titleFont;
+    [self.contentView addSubview:TradingLabel];
+    [TradingLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self).offset(10);
+        make.right.equalTo(self).offset(-15);
+    }];
+    TradingLabel = TradingLabel;
+    
+//    背景view
+    UIView * Backgroundview = [UIView new];
+    Backgroundview.layer.borderWidth = 1;
+    Backgroundview.backgroundColor = ZP_Graybackground;
+    Backgroundview.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
+    [self.contentView addSubview:Backgroundview];
+    [Backgroundview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self).offset(35);
+        make.height.mas_equalTo(110);
+        make.width.mas_equalTo(ZP_Width);
+    }];
+    _Backgroundview = Backgroundview;
+    
+/******************************************************/
+/******************************************************/
+//  主图
+    UIImageView * FigureImage = [UIImageView new];
+    [self.Backgroundview addSubview:FigureImage];
+    [FigureImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(5);
+        make.top.equalTo(self).offset(40);
+        make.width.mas_equalTo(70);
+        make.height.mas_equalTo(100-10);
+    }];
+    _FigureImage = FigureImage;
+    
+//  商家名字
+    UILabel * merchantsLabel = [UILabel  new];
+    merchantsLabel.textAlignment = NSTextAlignmentLeft;
+    [merchantsLabel setTextColor:ZP_Graybackground];
+    merchantsLabel.textColor = [UIColor blackColor];
+    merchantsLabel.font = titleFont;
+    [self.Backgroundview addSubview:merchantsLabel];
+    [merchantsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(80);
+        make.top.equalTo(self).offset(40);
+    }];
+    _merchantsLabel = merchantsLabel;
+
+//  商品文字
+    UILabel * titleLabel = [UILabel new];
+    titleLabel.textColor = ZP_textblack;
+    titleLabel.lineBreakMode = UILineBreakModeWordWrap; //文字分行
+    titleLabel.numberOfLines = 0;
+    titleLabel.font = titleFont;
+    [self.Backgroundview addSubview:titleLabel];
+    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(80);
+        make.top.equalTo(self).offset(55);
+        make.right.equalTo(self).offset(-20);
+    }];
+    _titleLabel = titleLabel;
+    
+//  250ml升级装
+    UILabel * descLabel = [UILabel new];;
+    descLabel.textColor = TypefaceColor;
+    descLabel.font = introduceFont;
+    [self.Backgroundview addSubview:descLabel];
+    [descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(80);
+        make.top.equalTo(self).offset(85);
+    }];
+    _descLabel = descLabel;
+    
+//  优惠价格
+    UILabel * PreferentialLabel = [UILabel new];
+    PreferentialLabel.textAlignment = NSTextAlignmentLeft;
+    PreferentialLabel.textColor = ZP_pricebackground;
+    PreferentialLabel.font = titleFont;
+    [self.Backgroundview addSubview:PreferentialLabel];
+    [PreferentialLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(80);
+        make.top.equalTo(self).offset(100);
+    }];
+    _PreferentialLabel = PreferentialLabel;
+    
+//  价格
+    UILabel * priceLabel = [UILabel new];
+    priceLabel.textAlignment = NSTextAlignmentLeft;
+    priceLabel.textColor = TabBarTextColor;
+    priceLabel.font = titleFont;
+    [self.Backgroundview addSubview:priceLabel];
+    [priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(80);
+        make.top.equalTo(self).offset(115);
+    }];
+    _priceLabel = priceLabel;
+    
+//  横线
+    UIView * Crossview = [UIView new];
+    Crossview.layer.borderWidth = 1;
+    Crossview.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
+    Crossview.backgroundColor = TabBarTextColor;
+    [self.Backgroundview addSubview: Crossview];
+    [Crossview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(80);
+        make.top.equalTo(self).offset(122);
+        make.height.mas_equalTo(1);
+        make.width.mas_equalTo(50);
+    }];
+    
+//  商标
+    UIImageView * TrademarkImage = [UIImageView new];
+    [self.Backgroundview addSubview:TrademarkImage];
+    [TrademarkImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self).offset(-120);
+        make.top.equalTo(self).offset(110);
+    }];
+    _TrademarkImage = TrademarkImage;
+    
+//  商标编号
+    UILabel * TrademarkLabel = [UILabel new];
+    TrademarkLabel.textAlignment = NSTextAlignmentLeft;
+    TrademarkLabel.textColor = ZP_textblack;
+    TrademarkLabel.font = titleFont;
+    [self.Backgroundview addSubview:TrademarkLabel];
+    [TrademarkLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self).offset(-90);
+        make.top.equalTo(self).offset(110);
+    }];
+    _TrademarkLabel = TrademarkLabel;
+    
+//  竖线
+    UIView * VerticalView = [UIView new];
+    VerticalView.layer.borderWidth = 1;
+    VerticalView.backgroundColor = TabBarTextColor;
+    [self.Backgroundview addSubview:VerticalView];
+    [VerticalView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self).offset(-55);
+        make.top.equalTo(self).offset(120);
+        make.height.mas_equalTo(20);
+        make.width.mas_equalTo(1);
+    }];
+    
+
+//  符号X
+    UILabel * SharacterLabel = [UILabel new];
+    SharacterLabel.textAlignment = NSTextAlignmentLeft;
+    SharacterLabel.textColor = TypefaceColor;
+    SharacterLabel.font = titleFont;
+    [self.Backgroundview addSubview:SharacterLabel];
+    SharacterLabel.text = @"X";
+    [SharacterLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self).offset(-35);
+        make.top.equalTo(self).offset(125);
+    }];
+    
+//  数量
+    UILabel * QuantityLabel = [UILabel new];
+    QuantityLabel.textAlignment = NSTextAlignmentLeft;
+    QuantityLabel.textColor = TypefaceColor;
+    QuantityLabel.font = titleFont;
+    [self.Backgroundview addSubview:QuantityLabel];
+    [QuantityLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self).offset(-20);
+        make.top.equalTo(self).offset(125);
+    }];
+    _QuantityLabel = QuantityLabel;
+    
+//  合计
+    UILabel * CountLabel = [UILabel new];
+    CountLabel.textAlignment = NSTextAlignmentLeft;
+    CountLabel.textColor = ZP_textblack;
+    CountLabel.text = NSLocalizedString(@"合计:", nil);
+    CountLabel.font = introduceFont;
+    [self.contentView addSubview:CountLabel];
+    [CountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self).offset(-120);
+        make.bottom.equalTo(self).offset(-60);
+    }];
+    _CountLabel = CountLabel;
+    
+//  金额
+    UILabel * AmountLabel = [UILabel new];
+    AmountLabel.textAlignment = NSTextAlignmentLeft;
+    AmountLabel.textColor = ZP_textblack;
+    AmountLabel.font = introduceFont;
+    [self.contentView addSubview:AmountLabel];
+    [AmountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self).offset(-95);
+        make.bottom.equalTo(self).offset(-60);
+    }];
+    _AmountLabel = AmountLabel;
+    
+//  运费
+    UILabel * FreightLabel = [UILabel new];
+    FreightLabel.textAlignment = NSTextAlignmentLeft;
+    FreightLabel.textColor = ZP_textblack;
+    FreightLabel.font = introduceFont;
+    FreightLabel.text = NSLocalizedString(@"(含运费RMB30.00)", nil);
+    [self.contentView addSubview:FreightLabel];
+    [FreightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self).offset(-5);
+        make.bottom.equalTo(self).offset(-60);
+    }];
+    _FreightLabel = FreightLabel;
+    
+//  评价
+    UIButton * AppraiseBut = [UIButton buttonWithType:UIButtonTypeSystem];
+    AppraiseBut.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
+    [AppraiseBut setTitle:NSLocalizedString(@"评价", nil) forState:UIControlStateNormal];
+    [AppraiseBut setTitleColor:TypefaceColor forState:UIControlStateNormal];
+    AppraiseBut.titleLabel.font = introduceFont;
+    AppraiseBut.layer.borderWidth = 1;
+    [AppraiseBut addTarget:self action:@selector(AppraiseBut:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:AppraiseBut];
+    [AppraiseBut mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self).offset(-140);
+        make.bottom.equalTo(self).offset(-15);
+        make.width.mas_equalTo(60);
+    }];
+    _AppraiseBut = AppraiseBut;
+    
+//  物流
+    UIButton * LogisticsBut = [UIButton buttonWithType:UIButtonTypeSystem];
+    LogisticsBut.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
+    [LogisticsBut setTitle:NSLocalizedString(@"查看物流", nil) forState:UIControlStateNormal];
+    [LogisticsBut setTitleColor:TypefaceColor forState:UIControlStateNormal];
+    LogisticsBut.font = introduceFont;
+    LogisticsBut.layer.borderWidth = 1;
+    [LogisticsBut addTarget:self action:@selector(LogisticsBut:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:LogisticsBut];
+    [LogisticsBut mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self).offset(-75);
+        make.bottom.equalTo(self).offset(-15);
+        make.width.mas_equalTo(60);
+    }];
+    _LogisticsBut = LogisticsBut;
+    
+//  再次购买
+    UIButton * OnceagainBut = [UIButton buttonWithType:UIButtonTypeSystem];
+    OnceagainBut.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
+        OnceagainBut.backgroundColor = OnceagainColor;
+    [OnceagainBut setTitle:NSLocalizedString(@"再次购买", nil) forState:UIControlStateNormal];
+    [OnceagainBut setTitleColor:ZP_textWite forState:UIControlStateNormal];
+    OnceagainBut.titleLabel.font = introduceFont;
+    OnceagainBut.layer.borderWidth = 1;
+    [OnceagainBut addTarget:self action:@selector(OnceagainBut:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:OnceagainBut];
+    [OnceagainBut mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self).offset(-10);
+        make.bottom.equalTo(self).offset(-15);
+        make.width.mas_equalTo(60);
+    }];
+    _OnceagainBut = OnceagainBut;
+    
+}
+
+//  评价
+- (void)AppraiseBut:(UIButton *)AppraiseBut {
+    AppraiseController * appistcs = [[AppraiseController alloc]init];
+    if (self.appraiseBlock) {
+        
+        self.appraiseBlock(appistcs);
+        
+    }
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"appraise" object:nil];
+    
+    }
+
+//  物流
+- (void)LogisticsBut:(UIButton *) LogisticsBut {
+    LogistcsController * logistcs = [[LogistcsController alloc]init];
+    if (self.finishBlock) {
+        
+        self.finishBlock(logistcs);
+    }
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"logistcs" object:nil];
+
+    NSLog(@"物流");
+}
+//  再次购买
+- (void)OnceagainBut:(UIButton *)OnceagainBut {
+    
+    NSLog(@"再次购买");
+}
+
+- (void)InformationWithDic:(NSDictionary *)dic {
+    _IDLabel.text = dic[@"ID"];
+    _DateLabel.text = dic[@"Date"];
+    _TimeLabel.text = dic[@"Time"];
+    _FigureImage.image = [UIImage imageNamed:@"Shopping"];
+    _titleLabel.text = dic[@"title"];
+    _descLabel.text = dic[@"desc"];
+    _PreferentialLabel.text = dic[@"Preferential"];
+    _priceLabel.text = dic[@"price"];
+    _TrademarkImage.image = [UIImage imageNamed:@"ic_cp"];
+    _TrademarkLabel.text = dic[@"Trademark"];
+    _QuantityLabel.text = dic[@"Quantiy"];
+    _merchantsLabel.text = dic[@"merchants"];
+    _AmountLabel.text = dic[@"Amount"];
+}
+
+@end

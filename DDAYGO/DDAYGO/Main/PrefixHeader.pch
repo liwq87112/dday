@@ -1,0 +1,133 @@
+//
+//  PrefixHeader.pch
+//  DDAYGO
+//
+//  Created by 小树普惠 on 2017/9/8.
+//  Copyright © 2017年 lwq. All rights reserved.
+//
+#define REDPACKET_AVALABLE
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CommonCrypto/CommonDigest.h>
+#import <AFNetworking/AFNetworking.h>
+#import <SVProgressHUD/SVProgressHUD.h>
+
+//#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+#import "UIView+Extension.h"
+#import "UIImage+Extension.h"
+#import "UIColor+Extension.h"
+#import "UIFont+Extension.h"
+#import "UIView+Additions.h"
+#import "CALayer+UIColor.h"
+#import "UIViewController+LLProgress.h"
+#import "Masonry.h"
+#import "IQTableView.h"
+#import "Documents.pch"
+#import "AppDelegate.h"
+#import "UserDefultManage.h"
+#import "DataInterface.pch"
+#import "UIImageView+WebCache.h"
+#import "UINavigationBar+Awesome.h"
+#import "UIButton+countDown.h"
+#import "Const.h"
+#import "ZPProgressHUD.h"
+#import "JXPopoverView.h"
+#import "ZP_GeneralLabel.h"
+#import "MyViewController.h"
+#import "LogregisterController.h"
+#import "MJExtension.h"
+#import "ZP_HttpConst.h"
+#import "ReloadView.h"
+#import "Const.h"
+#import "NoDataView.h"
+#import "global.h"
+#import "UIViewController+Listening.h"
+#import "StoredCacheClearing.pch"
+#import "DebuggingANDPublishing.pch"
+#import "BHAlertView.h"
+
+
+//*/
+#define DD_MonetarySymbol [[MyViewController sharedInstanceTool] getMonetarySymbol]
+
+#define DD_ChangeStaus [[NSNotificationCenter defaultCenter] postNotificationName:@"changeStaus" object:nil]
+
+#define DEMO_CALL 1Check login status
+#define DD_CHECK_HASLONGIN if (!DD_HASLOGIN){if ([self isKindOfClass:[UIViewController class]]) {\
+[self.navigationController pushViewController:[[LogregisterController alloc] init] animated:YES];\
+[SVProgressHUD showErrorWithStatus:MyLocal(@"Please log in")];}return;}
+
+
+#define DD_TOKEN [[NSUserDefaults standardUserDefaults] objectForKey:@"token"]
+#define DD_HASLOGIN DD_TOKEN
+//全局
+#define appD ((AppDelegate*)[[UIApplication sharedApplication] delegate])
+#define NavBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height + 44)
+#define TabbarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?83:49) // 适配iPhone x 底栏高度
+//尺寸
+#define ZP_Width [UIScreen mainScreen].bounds .size.width
+#define ZP_height [UIScreen mainScreen].bounds .size.height
+
+//颜色
+#define HomeGrayColor TabBarTextColor
+#define ZP_HomeTitleTypefaceCorlor [UIColor colorWithHexString:@"#333333"] // 标题字体
+#define ZP_HomePreferentialpriceTypefaceCorlor [UIColor colorWithHexString:@"#ff7755"] // 优惠价格
+#define ZP_HomeTitlepriceTypefaceColor [UIColor colorWithHexString:@"#666666"] // 价格
+#define ZP_PayColor [UIColor colorWithHexString:@"#fda855"] // 立即支付
+#define ZP_typefaceOrangeColor [UIColor colorWithHexString:@"#ff6600"]  // 交易成功字体
+#define ZP_NavigationCorlor [UIColor colorWithHexString:@"#fb8f25"]
+#define ZP_textblack [UIColor colorWithHexString:@"#090909"]
+#define ZP_textWite [UIColor colorWithHexString:@"#fefefe"]
+#define ZP_customWite [UIColor colorWithHexString:@"#ebebeb"]
+#define ZP_DeepBlue [UIColor colorWithHexString:@"#cccccc"] // 分割线
+#define ZP_Graybackground [UIColor colorWithHexString:@"#eeeeee"]
+#define ZP_pricebackground [UIColor colorWithHexString:@"#f46506"]
+#define ZP_OnceagainColor [UIColor colorWithHexString:@"#fb7f06"]
+#define ZP_TypefaceColor [UIColor colorWithHexString:@"#666666"]  // 商标字体
+#define ZP_TabBarTextColor [UIColor colorWithHexString:@"#999999"]
+#define ZP_titlecokeColor [UIColor colorWithHexString:@"#bebebe"]
+#define ZP_ButtonDisabledColor [UIColor colorWithHexString:@"#dfdfdf"]
+#define ZP_WhiteColor [UIColor colorWithHexString:@"#ffffff"]
+#define ZP_LabelColor [UIColor colorWithHexString:@"#434343"]
+#define ZP_green [UIColor colorWithHexString:@"#abc773"]
+#define ZP_greenen [UIColor colorWithHexString:@"#98b55e"]
+#define ZP_BuyColor [UIColor colorWithHexString:@"#E05B00"]
+#define ZP_TabbarNormalColor  [UIColor colorWithHexString:@"#ff5e0d"]
+#define ZP_HomeTableViewColor [UIColor colorWithHexString:@"#f5f6fc"]
+#define ZP_XINPINGCOLOER [UIColor colorWithHexString:@"#e3202a"]
+#define ZP_HUISE [UIColor colorWithHexString:@"#f2f2f2"]
+#define ZP_TEXTCOLERS [UIColor colorWithHexString:@"#000000"]
+#define ZP_MessageListColor [UIColor colorWithHexString:@"#f9f9f9"]
+#define ZP_VIEWSegmentation [UIColor colorWithHexString:@"#e6e5e6"]
+
+//国际化
+#define MyLocal(x, ...) NSLocalizedString(x, nil)
+// 字体
+#define ZP_AmountTextFont [UIFont myFontOfSize:24]
+#define ZP_NavTextFont [UIFont myFontOfSize:18]
+#define ZP_NavTextdetaFont [UIFont myFontOfSize:16]
+#define ZP_addBtnTextdetaFont [UIFont myFontOfSize:15]
+#define ZP_TooBarFont [UIFont myFontOfSize:14]
+#define ZP_stockFont [UIFont myFontOfSize:13]
+#define ZP_titleFont [UIFont myFontOfSize:12]
+#define ZP_introduceFont [UIFont myFontOfSize:11]
+#define ZP_TrademarkFont [UIFont myFontOfSize:10]
+#define ZP_NineFont [UIFont myFontOfSize:9]
+#define ZP_EightFont [UIFont myFontOfSize:8]
+#define ZP_SevenFont [UIFont myFontOfSize:7]
+
+// 颜色调配
+#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+
+//class
+#define ClassBtnViewforHot  LWN_height*0.2
+#define HeightRatio ((ZP_Width==320)?1:ZP_Width/568)
+#define WidthRatio ((ZP_Width==320)?1:ZP_Width/320)
+
+#pragma mark 网络转码
+
+#endif /* PrefixHeader_pch */
+

@@ -1,0 +1,62 @@
+//
+//  DataInterface.pch
+//  DDAYGO
+//
+//  Created by 小树普惠 on 2017/10/24.
+//  Copyright © 2017年 lwq. All rights reserved.
+//
+
+#ifndef DataInterface_pch
+#define DataInterface_pch
+//  外网
+#define URLAPI @"http://www.ddaygo.com/api/v1/"
+//内网
+//#define URLAPI @"http://192.168.0.117:7000/api/v1/"
+// HomePage(首页接口)
+//国家列表
+#define Psoitions @"getcountry"
+
+//图片拼接接口
+//外网
+#define ImgAPI @"http://www.ddaygo.com"
+//内网
+//#define ImgAPI @"http://192.168.0.117:7000"
+
+
+//热销商品(4张图片的那个)
+#define HotCakesAPI @"hotproduct"
+//精选商品
+#define NewsReleaseAPI @"specials"
+//ClassHomePage（分类接口）
+// 分类大分类
+#define HotAPI @"producttypelevel"
+//分类大分类(二级)
+#define AdvertisingAPI @"ProductTypeParent"
+//分类商品分类
+#define merchandiseClassAPI @"ProductFilter"
+//分类商品详情
+#define Details @"productinfo"
+//参与记录
+#define OrderAgreementAPI @"getorders"
+//购物车
+#define ShoppingAPI @"cart"
+// 获取确认订单信息
+#define MakeSureOrderAPI @"ordersaddinfo"
+// 获取确认订单界面数据
+#define MakeOrderAPI @"ordersupdateinfo"
+//个人信息
+#define PersonalInformationAPI @"AccountInfo"
+//登录
+#define LoginUserAPI @"Login"
+//注册
+#define RegistUserAPI @"register"
+//验证码
+#define YzmCarAPI @"sendvercode"
+//地区列表
+#define AreaAPI @"getreceipt"
+//获取地址
+#define RequestAddress @"getreceipt"
+//查找地址
+#define RequetMethodpay @"getpayways"
+
+#endif /* DataInterface_pch */

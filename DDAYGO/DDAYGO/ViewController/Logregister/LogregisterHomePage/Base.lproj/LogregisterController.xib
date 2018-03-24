@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LogregisterController">
+            <connections>
+                <outlet property="ICUEQuicklogin" destination="XYj-Ab-JMS" id="a0X-zY-msk"/>
+                <outlet property="LogregisterscrollView" destination="TZG-WZ-q0v" id="d49-zb-8qM"/>
+                <outlet property="view" destination="8KN-Oo-tak" id="kGI-1K-13N"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="8KN-Oo-tak">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TZG-WZ-q0v">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_login_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Ciz-WC-OaP">
+                            <rect key="frame" x="110.5" y="63" width="100" height="100"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="S4S-8w-np1"/>
+                                <constraint firstAttribute="width" constant="100" id="URH-rK-4WH"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nb-gI-0kd">
+                            <rect key="frame" x="15" y="282" width="291" height="35"/>
+                            <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="0.64544092470000003" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="THD-Px-bzx"/>
+                            </constraints>
+                            <state key="normal" title="登錄">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="LoginAction:" destination="-1" eventType="touchUpInside" id="PpB-BA-cys"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYj-Ab-JMS">
+                            <rect key="frame" x="121.5" y="375" width="118" height="25"/>
+                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                            <state key="normal" title="ICUE账户快速登錄">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="QuickloginAction:" destination="-1" eventType="touchUpInside" id="ijs-yF-S56"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhN-3N-4wk">
+                            <rect key="frame" x="15" y="325" width="290" height="35"/>
+                            <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="0.64544092470000003" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="EZO-Bt-wtC"/>
+                            </constraints>
+                            <state key="normal" title="新用戶註冊">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="RegAction:" destination="-1" eventType="touchUpInside" id="Brk-iF-AFq"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_icue" translatesAutoresizingMaskIntoConstraints="NO" id="9Jl-Hy-pY5">
+                            <rect key="frame" x="88.5" y="375" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="EQE-NU-cwa"/>
+                                <constraint firstAttribute="height" constant="25" id="lTV-xP-ehb"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Ciz-WC-OaP" firstAttribute="top" secondItem="TZG-WZ-q0v" secondAttribute="top" constant="63" id="1v5-fi-bye"/>
+                        <constraint firstItem="XYj-Ab-JMS" firstAttribute="centerX" secondItem="TZG-WZ-q0v" secondAttribute="centerX" constant="20" id="AEQ-rp-krO"/>
+                        <constraint firstItem="0nb-gI-0kd" firstAttribute="leading" secondItem="TZG-WZ-q0v" secondAttribute="leading" constant="15" id="HAZ-FZ-OEB"/>
+                        <constraint firstItem="9Jl-Hy-pY5" firstAttribute="top" secondItem="qhN-3N-4wk" secondAttribute="bottom" constant="15" id="IYj-Gh-lHk"/>
+                        <constraint firstItem="0nb-gI-0kd" firstAttribute="top" secondItem="TZG-WZ-q0v" secondAttribute="top" constant="282" id="IbY-6Z-C3f"/>
+                        <constraint firstItem="0nb-gI-0kd" firstAttribute="leading" secondItem="qhN-3N-4wk" secondAttribute="leading" id="JWy-Xd-rSe"/>
+                        <constraint firstItem="Ciz-WC-OaP" firstAttribute="centerX" secondItem="0nb-gI-0kd" secondAttribute="centerX" id="Jm0-wm-aPp"/>
+                        <constraint firstItem="9Jl-Hy-pY5" firstAttribute="bottom" secondItem="XYj-Ab-JMS" secondAttribute="bottom" id="Nug-By-wIh"/>
+                        <constraint firstItem="XYj-Ab-JMS" firstAttribute="leading" secondItem="9Jl-Hy-pY5" secondAttribute="trailing" constant="8" symbolic="YES" id="Skf-xf-Hek"/>
+                        <constraint firstItem="Ciz-WC-OaP" firstAttribute="centerX" secondItem="TZG-WZ-q0v" secondAttribute="centerX" id="d5v-g7-e3O"/>
+                        <constraint firstItem="0nb-gI-0kd" firstAttribute="centerX" secondItem="qhN-3N-4wk" secondAttribute="centerX" id="e9o-Vc-cvm"/>
+                        <constraint firstItem="qhN-3N-4wk" firstAttribute="top" secondItem="0nb-gI-0kd" secondAttribute="bottom" constant="8" symbolic="YES" id="hdw-hk-yf5"/>
+                        <constraint firstAttribute="trailing" secondItem="0nb-gI-0kd" secondAttribute="trailing" constant="14" id="lAE-Rh-Shg"/>
+                        <constraint firstItem="9Jl-Hy-pY5" firstAttribute="top" secondItem="XYj-Ab-JMS" secondAttribute="top" id="qbl-Fk-FQL"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="TZG-WZ-q0v" secondAttribute="trailing" id="2F9-5H-e2i"/>
+                <constraint firstAttribute="bottom" secondItem="TZG-WZ-q0v" secondAttribute="bottom" id="APx-ny-1Fg"/>
+                <constraint firstItem="TZG-WZ-q0v" firstAttribute="leading" secondItem="8KN-Oo-tak" secondAttribute="leading" id="gVI-pP-yBm"/>
+                <constraint firstItem="TZG-WZ-q0v" firstAttribute="top" secondItem="8KN-Oo-tak" secondAttribute="top" id="igB-Dg-sOj"/>
+            </constraints>
+            <point key="canvasLocation" x="-307" y="-478"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="img_icue" width="31" height="31"/>
+        <image name="img_login_logo" width="116" height="116"/>
+    </resources>
+</document>

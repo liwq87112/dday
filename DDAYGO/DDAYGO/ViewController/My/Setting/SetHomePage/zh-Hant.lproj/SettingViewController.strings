@@ -1,0 +1,37 @@
+
+
+/* Class = "UIButton"; normalTitle = "关于 DDAYGO"; ObjectID = "avw-gh-5ot"; */
+"avw-gh-5ot.normalTitle" = "關於 DDAYGO";
+
+/* Class = "UIButton"; normalTitle = "头像"; ObjectID = "70f-JJ-vAZ"; */
+"70f-JJ-vAZ.normalTitle" = "頭像";
+
+/* Class = "UIButton"; normalTitle = "语言"; ObjectID = "BcJ-ag-DcH"; */
+"BcJ-ag-DcH.normalTitle" = "語言";
+
+/* Class = "UIButton"; normalTitle = "绑定ICUE账号"; ObjectID = "GTw-o1-YLZ"; */
+"GTw-o1-YLZ.normalTitle" = "綁定ICUE帳號";
+
+/* Class = "UIButton"; normalTitle = "账号"; ObjectID = "M6W-vh-Awz"; */
+"M6W-vh-Awz.normalTitle" = "帳號";
+
+/* Class = "UIButton"; normalTitle = "修改密码"; ObjectID = "NyZ-Lj-fcO"; */
+"NyZ-Lj-fcO.normalTitle" = "修改密碼";
+
+/* Class = "UIButton"; normalTitle = "收货地址"; ObjectID = "Tyd-n1-XLR"; */
+"Tyd-n1-XLR.normalTitle" = "收貨地址";
+
+/* Class = "UIButton"; normalTitle = "昵称"; ObjectID = "djq-6N-dQQ"; */
+"djq-6N-dQQ.normalTitle" = "暱稱";
+
+/* Class = "UIButton"; normalTitle = "绑定邮箱"; ObjectID = "faS-hm-H7E"; */
+"faS-hm-H7E.normalTitle" = "綁定郵箱";
+
+/* Class = "UIButton"; normalTitle = "绑定介绍人"; ObjectID = "lIK-lF-bcl"; */
+"lIK-lF-bcl.normalTitle" = "綁定介紹人";
+
+/* Class = "UIButton"; normalTitle = "登出 "; ObjectID = "od5-OI-OX3"; */
+"od5-OI-OX3.normalTitle" = "登出 ";
+
+/* Class = "UILabel"; text = "性别"; ObjectID = "uAo-vs-cWY"; */
+"uAo-vs-cWY.text" = "性別";

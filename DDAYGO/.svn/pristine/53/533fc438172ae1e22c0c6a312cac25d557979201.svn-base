@@ -1,0 +1,22 @@
+//
+//  RightTableViewCell.m
+//  DDAYGO
+//
+//   Created by Login on 2017/9/7.
+//  Copyright © 2017年 Summer. All rights reserved.
+//
+
+#import "RightTableViewCell.h"
+
+@implementation RightTableViewCell
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    // Initialization code
+}
+
+- (void)updateData:(id)data {
+    self.contentLabel.text = data;
+}
+
+@end

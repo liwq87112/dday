@@ -1,0 +1,16 @@
+//
+//  EditorViewController.h
+//  DDAYGO
+//
+//  Created by Login on 2017/9/19.
+//  Copyright © 2017年 Summer. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface EditorViewController : UIViewController
+@property (nonatomic, strong) UIButton * AllButton;  // 全选按钮
+@property (nonatomic, strong) UILabel * AllLabel;
+@property (nonatomic, strong) UIButton * ClearingBut;
+@property (nonatomic, strong) UIButton * Shopchoosebuttom; // 商品选择按钮
+@end

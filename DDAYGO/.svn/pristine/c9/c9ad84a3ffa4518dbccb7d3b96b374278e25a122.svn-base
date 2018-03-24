@@ -1,0 +1,88 @@
+//
+//  PrefixHeader.pch
+//  DDAYGO
+//
+//  Created by Login on 2017/9/8.
+//  Copyright © 2017年 Summer. All rights reserved.
+//
+#define REDPACKET_AVALABLE
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+
+#endif
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+#import "UIView+Extension.h"
+#import "UIImage+Extension.h"
+#import "UIColor+Extension.h"
+#import "UIFont+Extension.h"
+#import "Masonry.h"
+#import "AppDelegate.h"
+#import "UserDefultManage.h"
+#import "DataInterface.pch"
+#ifdef DEBUG // 调试状态, 打开LOG功能
+#define LWNLog(...) NSLog(__VA_ARGS__)
+#else // 发布状态, 关闭LOG功能
+#define LWNLog(...)
+#endif
+
+#define DEMO_CALL 1
+//全局
+#define appD ((AppDelegate*)[[UIApplication sharedApplication] delegate])
+
+//尺寸
+#define ZP_Width [UIScreen mainScreen].bounds .size.width
+#define ZP_height [UIScreen mainScreen].bounds .size.height
+
+//颜色
+#define HomeGrayColor TabBarTextColor
+#define ZP_HomeTitleTypefaceCorlor [UIColor colorWithHexString:@"#333333"] // 标题字体
+#define ZP_HomePreferentialpriceTypefaceCorlor [UIColor colorWithHexString:@"#ff7755"] // 优惠价格
+#define ZP_HomeTitlepriceTypefaceColor [UIColor colorWithHexString:@"#666666"] // 价格
+#define ZP_PayColor [UIColor colorWithHexString:@"#fda855"] // 立即支付
+#define typefaceOrangeColor [UIColor colorWithHexString:@"#ff6600"]  // 交易成功字体
+#define ZP_NavigationCorlor [UIColor colorWithHexString:@"#fb8f25"]
+#define ZP_textblack [UIColor colorWithHexString:@"#090909"]
+#define ZP_textWite [UIColor colorWithHexString:@"#fefefe"]
+#define ZP_DeepBlue [UIColor colorWithHexString:@"#cccccc"] // 分割线
+#define ZP_Graybackground [UIColor colorWithHexString:@"#eeeeee"]
+#define ZP_pricebackground [UIColor colorWithHexString:@"#f46506"]
+#define OnceagainColor [UIColor colorWithHexString:@"#fb7f06"]
+#define TypefaceColor [UIColor colorWithHexString:@"#666666"]  // 商标字体
+#define TabBarTextColor [UIColor colorWithHexString:@"#999999"]
+#define ZP_WhiteColor [UIColor colorWithHexString:@"#ff6600"]
+#define ButtonDisabledColor [UIColor colorWithHexString:@"#dfdfdf"]
+#define NavigationColor [UIColor colorWithHexString:@"#ffffff"]
+#define LabelColor [UIColor colorWithHexString:@"#434343"]
+#define ZP_green [UIColor colorWithHexString:@"#abc773"]
+#define ZP_greenen [UIColor colorWithHexString:@"#98b55e"]
+#define TabbarNormalColor  [UIColor colorWithHexString:@"#ff5e0d"]
+#define HomeTableViewColor [UIColor colorWithHexString:@"#f5f6fc"]
+#define XINPINGCOLOER [UIColor colorWithHexString:@"#e3202a"]
+#define HUISE [UIColor colorWithHexString:@"#f2f2f2"]
+#define TEXTCOLERS [UIColor colorWithHexString:@"#000000"]
+#define messageListColor [UIColor colorWithHexString:@"#f9f9f9"]
+
+// 字体
+#define AmountTextFont [UIFont myFontOfSize:24]
+#define NavTextFont [UIFont myFontOfSize:18]
+#define NavTextdetaFont [UIFont myFontOfSize:16]
+#define addBtnTextdetaFont [UIFont myFontOfSize:15]
+#define TooBarFont [UIFont myFontOfSize:14]
+#define LB_stockFont [UIFont myFontOfSize:13]
+#define titleFont [UIFont myFontOfSize:12]
+#define introduceFont [UIFont myFontOfSize:11]
+#define TrademarkFont [UIFont myFontOfSize:10]
+
+// 颜色调配
+#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+
+//class
+#define ClassBtnViewforHot  LWN_height*0.2
+#define HeightRatio ((LWN_Width==320)?1:LWN_Width/568)
+#define WidthRatio ((LWN_Width==320)?1:LWN_Width/320)
+#endif /* PrefixHeader_pch */

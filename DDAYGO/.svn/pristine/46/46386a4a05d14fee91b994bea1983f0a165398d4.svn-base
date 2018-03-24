@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="FootprintCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="110" height="137"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="110" height="137"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E2p-Rc-CTb">
+                        <rect key="frame" x="0.0" y="0.0" width="110" height="88"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="E2p-Rc-CTb" secondAttribute="height" multiplier="5:4" id="0bV-k5-ZZO"/>
+                            <constraint firstAttribute="height" constant="88" id="icE-h4-IrS"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0rk-AD-jAl">
+                        <rect key="frame" x="70" y="0.0" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="ShT-N7-cKc"/>
+                            <constraint firstAttribute="height" constant="40" id="T1K-KY-TsG"/>
+                        </constraints>
+                        <state key="normal" image="ic_dianpu_delete_normal.png"/>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hk3-b8-2zb">
+                        <rect key="frame" x="0.0" y="96" width="110" height="41"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阿芙专卖店" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3J-vH-jhp">
+                                <rect key="frame" x="8" y="4" width="94" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="199" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zL5-NI-56j">
+                                <rect key="frame" x="8" y="25" width="94" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="D3J-vH-jhp" firstAttribute="top" secondItem="Hk3-b8-2zb" secondAttribute="top" constant="4" id="F6f-fw-Sgs"/>
+                            <constraint firstItem="D3J-vH-jhp" firstAttribute="leading" secondItem="Hk3-b8-2zb" secondAttribute="leading" constant="8" id="KHE-k7-QyM"/>
+                            <constraint firstAttribute="trailing" secondItem="D3J-vH-jhp" secondAttribute="trailing" constant="8" id="QJf-OW-nyC"/>
+                            <constraint firstAttribute="trailing" secondItem="zL5-NI-56j" secondAttribute="trailing" constant="8" id="Zct-1H-DJQ"/>
+                            <constraint firstItem="zL5-NI-56j" firstAttribute="top" secondItem="D3J-vH-jhp" secondAttribute="bottom" constant="4" id="kHl-5E-ewg"/>
+                            <constraint firstAttribute="bottom" secondItem="D3J-vH-jhp" secondAttribute="bottom" constant="20" id="rOZ-6f-LmP"/>
+                            <constraint firstItem="zL5-NI-56j" firstAttribute="leading" secondItem="Hk3-b8-2zb" secondAttribute="leading" constant="8" id="xig-CV-YP4"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Hk3-b8-2zb" firstAttribute="top" secondItem="E2p-Rc-CTb" secondAttribute="bottom" constant="8" id="6kz-I5-KkM"/>
+                <constraint firstAttribute="trailing" secondItem="E2p-Rc-CTb" secondAttribute="trailing" id="7ZR-yt-pUf"/>
+                <constraint firstAttribute="bottom" secondItem="Hk3-b8-2zb" secondAttribute="bottom" id="GMF-I6-by4"/>
+                <constraint firstItem="E2p-Rc-CTb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="O1l-iG-g6L"/>
+                <constraint firstItem="E2p-Rc-CTb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="OUd-9c-d0J"/>
+                <constraint firstAttribute="trailing" secondItem="0rk-AD-jAl" secondAttribute="trailing" id="mBL-8B-cJq"/>
+                <constraint firstItem="Hk3-b8-2zb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="qEp-48-mQi"/>
+                <constraint firstItem="0rk-AD-jAl" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="qeO-qx-pMV"/>
+                <constraint firstAttribute="trailing" secondItem="Hk3-b8-2zb" secondAttribute="trailing" id="yuW-YP-JAU"/>
+            </constraints>
+            <point key="canvasLocation" x="25" y="51.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="ic_dianpu_delete_normal.png" width="16" height="16"/>
+    </resources>
+</document>

@@ -1,0 +1,68 @@
+//
+//  AddressViewController.m
+//  DDAYGO
+//
+//  Created by Login on 2017/9/22.
+//  Copyright © 2017年 Summer. All rights reserved.
+//
+
+#import "AddressViewController.h"
+#import "AddressTableViewCell.h"
+#import "AddAddressViewController.h"
+#import "EditViewController.h"
+#import "PrefixHeader.pch"
+@interface AddressViewController ()<UITableViewDataSource,UITableViewDelegate>
+
+@end
+
+@implementation AddressViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"收货地址";
+     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
+    [self.tableView registerNib:[UINib nibWithNibName:@"AddressTableViewCell" bundle:nil] forCellReuseIdentifier:@"AddressTableViewCell"];
+
+    UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithTitle:@"新增地址" style:UIBarButtonItemStylePlain target:self action:@selector(addAddress)];
+    self.navigationItem.rightBarButtonItem = item;
+    [self.navigationItem.rightBarButtonItem setTintColor:[UIColor whiteColor]];
+}
+
+- (void)addAddress {
+    AddAddressViewController *viewController = [[AddAddressViewController alloc] init];
+    viewController.contentDic = @{@"asd":@(YES)};
+    [self.navigationController pushViewController:viewController animated:YES];
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];   // 隐藏返回按钮上的文字
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+
+}
+
+#pragma mark ---tableView delegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 3;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    AddressTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"AddressTableViewCell"];
+    cell.finishBlock = ^(id response) {
+        EditViewController * viewController = [[EditViewController alloc] init];
+//        viewController.EditDic = @{@"ads":@(YES)};
+        [self.navigationController pushViewController:viewController animated:YES];
+        [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];   // 隐藏返回按钮上的文字
+        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+        
+    };
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 138;
+}
+
+
+@end

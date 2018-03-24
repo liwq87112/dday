@@ -1,0 +1,47 @@
+//
+//  Home.pch
+//  DDAYGO
+//
+//  Created by 小树普惠 on 2017/10/11.
+//  Copyright © 2017年 lwq. All rights reserved.
+//
+
+#ifndef Home_pch
+#define Home_pch
+
+#import "MJRefresh.h"
+#import "UIFont+Extension.h"
+#import "ZPSearchBarBUtton.h"
+#import "UIView+Extension.h"
+#import "PrefixHeader.pch"
+#import "UIImage+Extension.h"
+#import "SDCycleScrollView.h"
+#import "SearchGooodsController.h"
+#import "FirstViewCell.h"
+#import "SecondViewCell.h"
+#import "ThirdViewCell.h"
+#import "FourthViewCell.h"
+#import "SDCycleScrollView.h"
+#import "FifthViewCell.h"
+#import "ZeroViewCell.h"
+#import "SixthViewCell.h"
+#import "PositionView.h"
+
+/*******源数据分类头文件********/
+#import "DetailedViewCell.h"
+#import "TextdetailsViewCell.h"
+#import "MerchantController.h"
+
+#import "ShopIntroductionViewController.h"
+#import "ProductDescriptionView.h"
+#import "ShoppingViewController.h"
+#import "PurchaseView.h"
+#import "UIImageView+WebCache.h"
+#import "ZP_GoodDetailsModel.h"
+#import "PurchaseView.h"
+#import "ConfirmViewController.h"
+#import "ProductTableViewCell.h"
+#import "EvaluateTableViewCell.h"
+#import "MainViewController.h"
+
+#endif /* Home_pch */

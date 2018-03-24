@@ -1,0 +1,54 @@
+//
+//  FootprintViewController.m
+//  DDAYGO
+//
+//   Created by Login on 2017/9/7.
+//  Copyright © 2017年 Summer. All rights reserved.
+//
+
+#import "FootprintViewController.h"
+#import "UINavigationBar+Awesome.h"
+#import "FootprintCollectionViewCell.h"
+#import "PrefixHeader.pch"
+@interface FootprintViewController ()
+
+@end
+
+@implementation FootprintViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"我的足迹";
+     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
+    [self.collectionView registerNib:[UINib nibWithNibName:@"FootprintCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"FootprintCollectionViewCell"];
+    [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+
+}
+
+#pragma mark --- collectionView delegate
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 4;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    FootprintCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FootprintCollectionViewCell" forIndexPath:indexPath];
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat width=(self.view.frame.size.width-51)/3;
+    return CGSizeMake(width, width *137 / 110);
+}
+
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(10, 15, 10, 15);
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+}
+
+
+@end

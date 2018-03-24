@@ -1,0 +1,35 @@
+//
+//  DetailedViewCell.m
+//  DDAYGO
+//
+//  Created by Login on 2017/9/18.
+//  Copyright © 2017年 Summer. All rights reserved.
+//
+
+#import "DetailedViewCell.h"
+#import "PrefixHeader.pch"
+#import "SDCycleScrollView.h"
+@implementation DetailedViewCell
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    
+    self = [super initWithFrame:frame];
+    if (self) {
+//        [self initUI];
+    }
+    return self;
+}
+
+//- (void)initUI {
+//    SDCycleScrollView * scrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, 375, 120) delegate:nil placeholderImage:[UIImage imageNamed:@"banner_jiazai.jpg"]];
+//    NSArray * advertisingArray = @[@"banner_jiazai.jpg",@"banner_jiazaiii.png"];
+//    scrollView.showPageControl = YES;
+//    scrollView.autoScroll = YES;
+//    scrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
+//    scrollView.pageControlBottomOffset = -9;
+//    scrollView.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+//    scrollView.imageURLStringsGroup = advertisingArray;
+//    [self.contentView addSubview:scrollView];
+//
+//}
+@end

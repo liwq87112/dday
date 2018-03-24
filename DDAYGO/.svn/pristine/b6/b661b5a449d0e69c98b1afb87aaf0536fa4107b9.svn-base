@@ -1,0 +1,153 @@
+//
+//  PositionView.m
+//  DDAYGO
+//
+//  Created by Login on 2017/9/18.
+//  Copyright © 2017年 Summer. All rights reserved.
+//
+
+#import "PositionView.h"
+#import "PrefixHeader.pch"
+
+#define kATTR_VIEW_HEIGHT (kHeight-215)
+
+///******* 屏幕尺寸 *******/
+#define     kWidth      [UIScreen mainScreen].bounds.size.width - 30
+#define     kHeight     [UIScreen mainScreen].bounds.size.height - 50
+
+@interface PositionView () <UIGestureRecognizerDelegate>
+
+@property (nonatomic, weak) UIView * contentView;
+@property (nonatomic, strong) UIButton * button;
+@property (nonatomic, strong) NSArray * arrar;
+@property (nonatomic, strong) NSArray * arr;
+@property (nonatomic, strong) NSString * titleStr;
+@property (nonatomic, assign) NSInteger titleteger;
+@end
+
+@implementation PositionView
+
+-(instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setupViews];
+    }
+    return self;
+}
+
+#pragma mark - setupViews
+/**
+ *  设置视图的基本内容
+ */
+- (void)setupViews {
+// 添加手势，点击背景视图消失
+    UITapGestureRecognizer *tapBackGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeView)];
+    tapBackGesture.delegate = self;
+    [self addGestureRecognizer:tapBackGesture];
+    UIView * bounceView = [UIView new];
+    bounceView.backgroundColor = [UIColor whiteColor];
+    bounceView.layer.cornerRadius = 5.0;// View圆角弧度
+    [self addSubview:bounceView];
+    self.contentView = bounceView;
+    [bounceView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(15);
+        make.top.equalTo(self).offset(200);
+        make.right.equalTo(self).offset(-15);
+        make.bottom.equalTo(self).offset(-50);
+        
+    }];
+    
+//    标题
+    UILabel * titleLabel = [UILabel new];
+    titleLabel.textColor = [UIColor blackColor];
+    titleLabel.textColor = ZP_textblack;
+    titleLabel.text = @"选择您所在的国家";
+    titleLabel.numberOfLines = 0;
+    titleLabel.font = [UIFont systemFontOfSize:18];
+    [bounceView addSubview:titleLabel];
+    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(bounceView).offset(15); // 上面
+        make.left.equalTo(bounceView).offset(ZP_Width / 2 -70); // 左边
+    }];
+    self.arr = @[@"香港",@"中国",@"马来西亚",@"新加坡",@"泰国",@"越南"];
+//    self.arr = @[NSLocalizedString(@"香港", nil),NSLocalizedString(@"中国", nil),NSLocalizedString(@"马来西亚", nil),NSLocalizedString(@"新加坡", nil),NSLocalizedString(@"越南", nil),];
+    
+    self.arrar = @[@"img_home_HongKong",@"img_home_china",@"img_home_Malaysia",@"img_home_Singapore",@"img_home_Thailand",@"img_home_Vietnam"];
+    NSInteger num = 0;
+    for (int z = 0; z <= 3; z ++) {
+        for (int i = 0; i <=1; i ++) {
+            UIView * view = [[UIView alloc]initWithFrame:CGRectMake(i * ZP_Width / 2 + 5, z * 40 + 60, ZP_Width / 2 - 40, 1)];
+            [view setBackgroundColor:ZP_DeepBlue];
+            [bounceView addSubview:view];
+            self.button = [[UIButton alloc]initWithFrame:CGRectMake(i * ZP_Width / 2 + 10 , z * 40 + 70, ZP_Width / 2- 45 , 20)];
+            self.button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+            self.button.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+            self.button.titleLabel.font = TooBarFont;
+            [self.button setTitleColor:ZP_textblack forState:UIControlStateNormal];
+            if (z == 0) {
+                [self.button setImage:[UIImage imageNamed:self.arrar[i]] forState:UIControlStateNormal];
+                [self.button setTitle:self.arr[i] forState:UIControlStateNormal];
+                //                _titleStr = self.arrar[0];
+            }
+            if (z == 1) {
+                [self.button setImage:[UIImage imageNamed:self.arrar[i + 2]] forState:UIControlStateNormal];
+                [self.button setTitle:self.arr[i + 2] forState:UIControlStateNormal];
+            }
+            if (z == 2) {
+                [self.button setImage:[UIImage imageNamed:self.arrar[i + 4]] forState:UIControlStateNormal];
+                [self.button setTitle:self.arr[i + 4] forState:UIControlStateNormal];
+            }
+            self.button.tag = num;
+            [self.button addTarget:self action:@selector(buttonType:) forControlEvents:UIControlEventTouchUpInside];
+            [bounceView addSubview:self.button];
+            num ++;
+        }
+    }
+}
+#pragma mark - 点击事件
+- (void)buttonType:(UIButton * )sender {
+    self.titleteger = sender.tag;
+    self.ThirdBlock(self.arr[sender.tag]);
+    [self removeView];
+    
+}
+#pragma mark - UIGestureRecognizerDelegate
+//  确定点击范围
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+    
+    if ([touch.view isDescendantOfView:self.contentView]) {
+        return NO;
+    }
+    return YES;
+}
+
+#pragma mark - public
+/**
+ *  显示属性选择视图
+ *
+ *  @param view 要在哪个视图中显示
+ */
+- (void)showInView:(UIView *)view {
+    [view addSubview:self];
+    __weak typeof(self) _weakSelf = self;
+    self.contentView.frame = CGRectMake(15, kHeight, kWidth, kATTR_VIEW_HEIGHT);;
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        _weakSelf.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+        _weakSelf.contentView.frame = CGRectMake(15, kHeight - kATTR_VIEW_HEIGHT, kWidth, kATTR_VIEW_HEIGHT);
+    }];
+}
+
+/**
+ *  属性视图的消失
+ */
+- (void)removeView {
+    __weak typeof(self) _weakSelf = self;
+    [UIView animateWithDuration:0.3 animations:^{
+        _weakSelf.backgroundColor = [UIColor clearColor];
+        _weakSelf.contentView.frame = CGRectMake(15, kHeight, kWidth, kATTR_VIEW_HEIGHT);
+    } completion:^(BOOL finished) {
+        [_weakSelf removeFromSuperview];
+    }];
+}
+@end

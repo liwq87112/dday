@@ -1,0 +1,18 @@
+//
+//  FootprintCollectionViewCell.m
+//  DDAYGO
+//
+//   Created by Login on 2017/9/7.
+//  Copyright © 2017年 Summer. All rights reserved.
+//
+
+#import "FootprintCollectionViewCell.h"
+
+@implementation FootprintCollectionViewCell
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    // Initialization code
+}
+
+@end

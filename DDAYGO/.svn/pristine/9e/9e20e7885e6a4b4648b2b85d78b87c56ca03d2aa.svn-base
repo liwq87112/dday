@@ -1,0 +1,49 @@
+//
+//  CollectionViewController.m
+//  DDAYGO
+//
+//   Created by Login on 2017/9/7.
+//  Copyright © 2017年 Summer. All rights reserved.
+//
+
+#import "CollectionViewController.h"
+#import "CollectionTableViewCell.h"
+#import "UINavigationBar+Awesome.h"
+#import "PrefixHeader.pch"
+@interface CollectionViewController ()
+
+@end
+
+@implementation CollectionViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self initUI];
+    self.title = @"收藏";
+    
+
+}
+- (void)initUI {
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
+    [self.tableView registerNib:[UINib nibWithNibName:@"CollectionTableViewCell" bundle:nil] forCellReuseIdentifier:@"CollectionTableViewCell"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.navigationController.navigationBar lt_setBackgroundColor:ZP_NavigationCorlor];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    
+}
+#pragma mark ---tableView delegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 4;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CollectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CollectionTableViewCell"];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 102;
+}
+
+@end

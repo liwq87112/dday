@@ -1,0 +1,40 @@
+
+/* Class = "UIButton"; normalTitle = "退款/售后"; ObjectID = "EIo-H1-Rp6"; */
+"EIo-H1-Rp6.normalTitle" = "Refund/after-sales service.";
+
+/* Class = "UIButton"; normalTitle = "商店管理"; ObjectID = "55u-GW-AOe"; */
+"55u-GW-AOe.normalTitle" = "Store management";
+
+/* Class = "UILabel"; text = ")"; ObjectID = "58r-Uf-XLQ"; */
+"58r-Uf-XLQ.text" = ")";
+
+/* Class = "UILabel"; text = "收藏"; ObjectID = "69M-1X-t0e"; */
+"69M-1X-t0e.text" = "Collect";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "9Ji-Nx-7ud"; */
+"9Ji-Nx-7ud.text" = "0";
+
+/* Class = "UILabel"; text = "足迹"; ObjectID = "CMS-9M-nx2"; */
+"CMS-9M-nx2.text" = "Footmark";
+
+/* Class = "UILabel"; text = "("; ObjectID = "EYd-Rv-7Up"; */
+"EYd-Rv-7Up.text" = "(";
+
+/* Class = "UILabel"; text = "1111100"; ObjectID = "N31-ty-HnO"; */
+"N31-ty-HnO.text" = "";
+
+/* Class = "UIButton"; normalTitle = "扫一扫"; ObjectID = "SzE-mi-64s"; */
+"SzE-mi-64s.normalTitle" = "Scanning";
+
+/* Class = "UILabel"; text = "johb Smith"; ObjectID = "Yfb-7E-S8p"; */
+"Yfb-7E-S8p.text" = "johb Smith";
+
+/* Class = "UIButton"; normalTitle = "促销彩"; ObjectID = "Yq7-mx-siu"; */
+"Yq7-mx-siu.normalTitle" = "Sales promotion";
+
+/* Class = "UILabel"; text = "申請成為供貨商"; ObjectID = "dSx-Sb-nWM"; */
+"dSx-Sb-nWM.text" = "Apply become suppller";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "wKB-1F-Lrk"; */
+"wKB-1F-Lrk.text" = "0";
+

@@ -1,0 +1,18 @@
+//
+//  ConfirmViewController.h
+//  DDAYGO
+//
+//  Created by Login on 2017/9/20.
+//  Copyright © 2017年 Summer. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface ConfirmViewController : UIViewController
+@property (nonatomic, assign) NSInteger shopNum;
+@property (nonatomic, strong) NSString * shopMoney;
+
+@property (nonatomic, strong)UILabel * StatisticsLabel;
+@property (nonatomic, strong)UILabel * PriceLabel;
+@property (nonatomic, strong)UIButton * ClearingBut;
+@end

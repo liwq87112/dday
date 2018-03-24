@@ -1,0 +1,53 @@
+//
+//  UserDefultManage.m
+//  DDAYGO
+//
+//  Created by Login on 2017/9/11.
+//  Copyright © 2017年 Summer. All rights reserved.
+//
+
+#import "UserDefultManage.h"
+
+@implementation UserDefultManage
++(void)setValue:(id)value Key:(id)key
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (nil == defaults || nil == key || [value isKindOfClass:[NSNull class]]) {
+        return;
+    }
+    
+    [defaults setValue:value forKey:key];
+    [defaults synchronize];
+}
+
++(id)objectForKey:(id)key
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if (nil == defaults || nil == key) {
+        return nil;
+    }
+    return [defaults objectForKey:key];
+}
+
++(void)removeObjectForKey:(id)key
+{
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:key];
+}
+
++(void)removeAll {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *dic = [defaults dictionaryRepresentation];
+    NSString *versionKey = (NSString *)kCFBundleVersionKey;
+    for (id key in [dic allKeys]) {
+        if (![key isEqualToString:versionKey]) {
+            [self removeObjectForKey:key];
+            [defaults synchronize];
+            
+        }
+    }
+    
+    [self setValue:@"no" Key:@"isLogin"];
+}
+
+@end

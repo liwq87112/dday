@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LogregisterController">
+            <connections>
+                <outlet property="view" destination="8KN-Oo-tak" id="kGI-1K-13N"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="8KN-Oo-tak">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nb-gI-0kd">
+                    <rect key="frame" x="16" y="427" width="343" height="40"/>
+                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="0.64544092470000003" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Rp8-pR-1G7"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="iSY-cm-qRm"/>
+                    </constraints>
+                    <state key="normal" title="登录">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="LoginAction:" destination="-1" eventType="touchUpInside" id="PpB-BA-cys"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhN-3N-4wk">
+                    <rect key="frame" x="16" y="494" width="343" height="40"/>
+                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="0.64544092470000003" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="6V0-zO-qcM"/>
+                    </constraints>
+                    <state key="normal" title="新用户注册">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="RegAction:" destination="-1" eventType="touchUpInside" id="Brk-iF-AFq"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_login_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ciz-WC-OaP">
+                    <rect key="frame" x="122" y="120" width="130" height="130"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="130" id="dNz-aO-lKQ"/>
+                        <constraint firstAttribute="width" constant="130" id="x8L-N7-mfg"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_icue.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Jl-Hy-pY5">
+                    <rect key="frame" x="65" y="590" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="Acz-Vt-VEQ"/>
+                        <constraint firstAttribute="height" constant="35" id="Teh-EV-0XS"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ICUE账户快速" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7d-Dd-0Lg">
+                    <rect key="frame" x="108" y="590" width="101" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="101" id="HEF-s8-wkO"/>
+                        <constraint firstAttribute="height" constant="35" id="qRw-NC-MTF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYj-Ab-JMS">
+                    <rect key="frame" x="196" y="590" width="46" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="dkl-rl-FLQ"/>
+                        <constraint firstAttribute="height" constant="35" id="nbX-OX-QQg"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="登录">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="QuickloginAction:" destination="-1" eventType="touchUpInside" id="ijs-yF-S56"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="qhN-3N-4wk" firstAttribute="top" secondItem="0nb-gI-0kd" secondAttribute="bottom" constant="27" id="29R-gF-msX"/>
+                <constraint firstItem="9Jl-Hy-pY5" firstAttribute="top" secondItem="qhN-3N-4wk" secondAttribute="bottom" constant="56" id="6hr-Qb-MqK"/>
+                <constraint firstAttribute="bottom" secondItem="XYj-Ab-JMS" secondAttribute="bottom" constant="42" id="Bo9-O3-slb"/>
+                <constraint firstItem="9Jl-Hy-pY5" firstAttribute="leading" secondItem="8KN-Oo-tak" secondAttribute="leading" constant="65" id="DIK-6Q-bUc"/>
+                <constraint firstItem="Z7d-Dd-0Lg" firstAttribute="leading" secondItem="9Jl-Hy-pY5" secondAttribute="trailing" constant="8" id="IeH-hU-ecL"/>
+                <constraint firstItem="0nb-gI-0kd" firstAttribute="trailing" secondItem="qhN-3N-4wk" secondAttribute="trailing" id="OEW-5K-pnu"/>
+                <constraint firstItem="0nb-gI-0kd" firstAttribute="leading" secondItem="qhN-3N-4wk" secondAttribute="leading" id="P5M-Y6-3G0"/>
+                <constraint firstItem="XYj-Ab-JMS" firstAttribute="leading" secondItem="9Jl-Hy-pY5" secondAttribute="trailing" constant="96" id="QTa-Bx-O5l"/>
+                <constraint firstAttribute="trailing" secondItem="0nb-gI-0kd" secondAttribute="trailing" constant="16" id="TsR-I6-yty"/>
+                <constraint firstItem="Ciz-WC-OaP" firstAttribute="top" secondItem="8KN-Oo-tak" secondAttribute="top" constant="120" id="bga-m9-9Zp"/>
+                <constraint firstItem="Z7d-Dd-0Lg" firstAttribute="top" secondItem="9Jl-Hy-pY5" secondAttribute="top" id="hVJ-oh-SKm"/>
+                <constraint firstItem="Ciz-WC-OaP" firstAttribute="centerX" secondItem="0nb-gI-0kd" secondAttribute="centerX" id="heT-xP-hIw"/>
+                <constraint firstAttribute="bottom" secondItem="qhN-3N-4wk" secondAttribute="bottom" constant="133" id="k6b-vk-pFh"/>
+                <constraint firstItem="Ciz-WC-OaP" firstAttribute="centerX" secondItem="8KN-Oo-tak" secondAttribute="centerX" id="kXk-lX-59E"/>
+                <constraint firstItem="0nb-gI-0kd" firstAttribute="leading" secondItem="8KN-Oo-tak" secondAttribute="leading" constant="16" id="oEf-aj-nwi"/>
+                <constraint firstAttribute="bottom" secondItem="9Jl-Hy-pY5" secondAttribute="bottom" constant="42" id="oSK-0N-t1b"/>
+                <constraint firstItem="XYj-Ab-JMS" firstAttribute="top" secondItem="qhN-3N-4wk" secondAttribute="bottom" constant="56" id="yes-Zv-CU2"/>
+            </constraints>
+            <point key="canvasLocation" x="32.5" y="53.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="img_icue.png" width="31" height="31"/>
+        <image name="img_login_logo.png" width="116" height="116"/>
+    </resources>
+</document>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZP_QuickLoginController">
+            <connections>
+                <outlet property="LoginBtn" destination="Son-Iu-HOg" id="Ddo-SJ-w9X"/>
+                <outlet property="ProtocolBut" destination="rjj-oS-adh" id="xkz-Ln-aSB"/>
+                <outlet property="QuickLoginscrollView" destination="EdG-tj-q4I" id="zd8-cz-Evz"/>
+                <outlet property="ZPEmailTextField" destination="fh4-zK-ymt" id="e3r-mD-YDe"/>
+                <outlet property="ZPPswTextField" destination="bIN-HP-Tca" id="imN-Z7-lwp"/>
+                <outlet property="view" destination="7mz-eA-DPH" id="EEm-AZ-MyI"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="7mz-eA-DPH">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EdG-tj-q4I">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_icue_registered_Account" translatesAutoresizingMaskIntoConstraints="NO" id="3WR-zG-gJb">
+                            <rect key="frame" x="20" y="78" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="MvK-Zn-qSf"/>
+                                <constraint firstAttribute="height" constant="30" id="XER-yM-4i5"/>
+                            </constraints>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fh4-zK-ymt" customClass="TextView">
+                            <rect key="frame" x="65" y="78" width="230" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="Sni-SR-jbx"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="titleStr" value="請輸入ICUE號"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="keyboardType">
+                                    <integer key="value" value="0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="showBtn" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="secureTextEntry" value="NO"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_icue_password" translatesAutoresizingMaskIntoConstraints="NO" id="xeP-42-6hO">
+                            <rect key="frame" x="20" y="129" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="59y-SL-XTK"/>
+                                <constraint firstAttribute="width" constant="30" id="ZFn-oh-aha"/>
+                            </constraints>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bIN-HP-Tca" customClass="TextView">
+                            <rect key="frame" x="65" y="129" width="230" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="baj-rj-BZc"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="titleStr" value="請輸入密碼"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="showBtn" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="secureTextEntry" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Son-Iu-HOg">
+                            <rect key="frame" x="20" y="317" width="281" height="35"/>
+                            <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.0" alpha="0.64544092470000003" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="0Os-0Z-Rpa"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="登錄">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="LoginClick:" destination="-1" eventType="touchUpInside" id="kS8-Bs-zwo"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rjj-oS-adh">
+                            <rect key="frame" x="72" y="182" width="104" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="22" id="CRK-sb-hED"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="我已閱讀並同意" image="icon_icue_choose_normal">
+                                <color key="titleColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </state>
+                            <state key="selected" image="icon_icue_choose_pressed"/>
+                            <connections>
+                                <action selector="UserAgreementBut:" destination="-1" eventType="touchUpInside" id="2PC-4n-vu6"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZuZ-SW-gu9">
+                            <rect key="frame" x="177" y="182" width="99" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="22" id="kzX-JR-IJQ"/>
+                            </constraints>
+                            <state key="normal">
+                                <attributedString key="attributedTitle">
+                                    <fragment content="《用戶服務協議》">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99215686274509807" green="0.6588235294117647" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <font key="NSFont" size="12" name=".PingFangSC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </state>
+                            <connections>
+                                <action selector="yonghufuwuxieyi:" destination="-1" eventType="touchUpInside" id="sJC-0z-g2e"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="xeP-42-6hO" firstAttribute="leading" secondItem="Son-Iu-HOg" secondAttribute="leading" id="ALL-Ro-vkS"/>
+                        <constraint firstItem="bIN-HP-Tca" firstAttribute="leading" secondItem="xeP-42-6hO" secondAttribute="trailing" constant="15" id="F8B-ok-Ptx"/>
+                        <constraint firstItem="ZuZ-SW-gu9" firstAttribute="leading" secondItem="rjj-oS-adh" secondAttribute="trailing" constant="1" id="FcO-ew-RKl"/>
+                        <constraint firstAttribute="bottom" secondItem="Son-Iu-HOg" secondAttribute="bottom" constant="216" id="JzJ-9w-wRh"/>
+                        <constraint firstItem="3WR-zG-gJb" firstAttribute="leading" secondItem="EdG-tj-q4I" secondAttribute="leading" constant="20" id="Q4Z-Ny-x2J"/>
+                        <constraint firstAttribute="trailing" secondItem="fh4-zK-ymt" secondAttribute="trailing" constant="25" id="UDc-S1-faq"/>
+                        <constraint firstItem="ZuZ-SW-gu9" firstAttribute="top" secondItem="bIN-HP-Tca" secondAttribute="bottom" constant="23" id="Wke-Sf-gE9"/>
+                        <constraint firstItem="xeP-42-6hO" firstAttribute="leading" secondItem="EdG-tj-q4I" secondAttribute="leading" constant="20" id="Zov-yp-8Aa"/>
+                        <constraint firstItem="xeP-42-6hO" firstAttribute="top" secondItem="3WR-zG-gJb" secondAttribute="bottom" constant="21" id="dKB-C8-Wt2"/>
+                        <constraint firstItem="rjj-oS-adh" firstAttribute="top" secondItem="bIN-HP-Tca" secondAttribute="bottom" constant="23" id="ddZ-1A-vrk"/>
+                        <constraint firstItem="Son-Iu-HOg" firstAttribute="centerX" secondItem="EdG-tj-q4I" secondAttribute="centerX" id="gFn-yj-0Hp"/>
+                        <constraint firstItem="fh4-zK-ymt" firstAttribute="trailing" secondItem="bIN-HP-Tca" secondAttribute="trailing" id="gyL-vr-N7x"/>
+                        <constraint firstItem="3WR-zG-gJb" firstAttribute="top" secondItem="EdG-tj-q4I" secondAttribute="top" constant="78" id="hBY-2s-oKs"/>
+                        <constraint firstItem="Son-Iu-HOg" firstAttribute="top" secondItem="EdG-tj-q4I" secondAttribute="top" constant="317" id="iBE-Jx-p43"/>
+                        <constraint firstItem="bIN-HP-Tca" firstAttribute="top" secondItem="fh4-zK-ymt" secondAttribute="bottom" constant="21" id="j59-a0-xrf"/>
+                        <constraint firstItem="fh4-zK-ymt" firstAttribute="top" secondItem="EdG-tj-q4I" secondAttribute="top" constant="78" id="mB7-kI-QqQ"/>
+                        <constraint firstItem="rjj-oS-adh" firstAttribute="leading" secondItem="EdG-tj-q4I" secondAttribute="leading" constant="72" id="o3J-6W-taS"/>
+                        <constraint firstAttribute="trailing" secondItem="Son-Iu-HOg" secondAttribute="trailing" constant="19" id="pbP-gP-uWx"/>
+                        <constraint firstItem="fh4-zK-ymt" firstAttribute="leading" secondItem="3WR-zG-gJb" secondAttribute="trailing" constant="15" id="rGb-76-3Yk"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="EdG-tj-q4I" firstAttribute="top" secondItem="7mz-eA-DPH" secondAttribute="top" id="6ye-Op-ew6"/>
+                <constraint firstItem="EdG-tj-q4I" firstAttribute="leading" secondItem="7mz-eA-DPH" secondAttribute="leading" id="dw3-fP-CAH"/>
+                <constraint firstAttribute="bottom" secondItem="EdG-tj-q4I" secondAttribute="bottom" id="fFM-EF-ddk"/>
+                <constraint firstAttribute="trailing" secondItem="EdG-tj-q4I" secondAttribute="trailing" id="pon-gP-StG"/>
+            </constraints>
+            <point key="canvasLocation" x="-65" y="51"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_icue_choose_normal" width="18" height="17"/>
+        <image name="icon_icue_choose_pressed" width="18" height="17"/>
+        <image name="icon_icue_password" width="21" height="24"/>
+        <image name="icon_icue_registered_Account" width="23" height="21"/>
+    </resources>
+</document>

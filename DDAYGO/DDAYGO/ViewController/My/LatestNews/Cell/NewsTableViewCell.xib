@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="NewsTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_forward" translatesAutoresizingMaskIntoConstraints="NO" id="Ju7-jM-zPT">
+                        <rect key="frame" x="270" y="0.0" width="50" height="49.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="0Sn-ht-HBc"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017/08/24" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDS-Bb-Hg9">
+                        <rect key="frame" x="8" y="26" width="262" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Eb-gc-0Vv">
+                        <rect key="frame" x="0.0" y="49" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="gKu-J3-Uh5"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最新标题放置位置最新标题放置位置" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flh-7R-Nrv">
+                        <rect key="frame" x="8" y="7" width="262" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="RDS-Bb-Hg9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="0P4-WB-cYa"/>
+                    <constraint firstItem="flh-7R-Nrv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="51K-4V-riW"/>
+                    <constraint firstItem="Ju7-jM-zPT" firstAttribute="leading" secondItem="flh-7R-Nrv" secondAttribute="trailing" id="80U-7c-ed9"/>
+                    <constraint firstItem="RDS-Bb-Hg9" firstAttribute="top" secondItem="flh-7R-Nrv" secondAttribute="bottom" constant="3" id="MDC-rs-EtH"/>
+                    <constraint firstItem="Ju7-jM-zPT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="PIQ-Rc-3k4"/>
+                    <constraint firstAttribute="trailing" secondItem="Ju7-jM-zPT" secondAttribute="trailing" id="PuW-b5-CMX"/>
+                    <constraint firstAttribute="bottom" secondItem="8Eb-gc-0Vv" secondAttribute="bottom" id="Qpb-ge-QOG"/>
+                    <constraint firstAttribute="bottom" secondItem="Ju7-jM-zPT" secondAttribute="bottom" id="S7T-xF-Mfk"/>
+                    <constraint firstItem="Ju7-jM-zPT" firstAttribute="leading" secondItem="RDS-Bb-Hg9" secondAttribute="trailing" id="Ufi-WC-nA0"/>
+                    <constraint firstAttribute="trailing" secondItem="8Eb-gc-0Vv" secondAttribute="trailing" id="X6e-cC-MUd"/>
+                    <constraint firstItem="8Eb-gc-0Vv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="baD-4v-pdO"/>
+                    <constraint firstItem="flh-7R-Nrv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="hhi-ax-MCM"/>
+                </constraints>
+            </tableViewCellContentView>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_forward" width="7" height="13"/>
+    </resources>
+</document>

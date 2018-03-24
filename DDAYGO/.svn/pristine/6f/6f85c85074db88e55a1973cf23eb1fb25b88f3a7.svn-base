@@ -1,0 +1,41 @@
+//
+//  ResetPasswordViewController.m
+//  DDAYGO
+//
+//  Created by Login on 2017/9/22.
+//  Copyright © 2017年 Summer. All rights reserved.
+//
+
+#import "ResetPasswordViewController.h"
+#import "PrefixHeader.pch"
+@interface ResetPasswordViewController ()
+
+@end
+
+@implementation ResetPasswordViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"修改密码";
+     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
+    self.oldpwTextfield.secureTextEntry = YES;
+    self.newpwTextfield.secureTextEntry = YES;
+    self.againpwTextfield.secureTextEntry = YES;
+}
+
+- (IBAction)showpwAction:(UIButton *)sender {
+    self.oldpwTextfield.secureTextEntry = sender.selected;
+    self.newpwTextfield.secureTextEntry = sender.selected;
+    self.againpwTextfield.secureTextEntry = sender.selected;
+    sender.selected = !sender.selected;
+}
+// 键盘弹起
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [super touchesBegan:touches withEvent:event];
+    [self.oldpwTextfield resignFirstResponder];
+    [self.newpwTextfield resignFirstResponder];
+    [self.againpwTextfield resignFirstResponder];
+}
+
+
+@end

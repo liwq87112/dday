@@ -1,0 +1,108 @@
+//
+//  ClassificationViewController.m
+//  DDAYGO
+//
+//  Created by Login on 2017/9/7.
+//  Copyright © 2017年 Summer. All rights reserved.
+//
+
+#import "ClassificationViewController.h"
+#import "LeftTableViewCell.h"
+#import "RightTableViewCell.h"
+#import "PrefixHeader.pch"
+#import "CPViewController.h"
+
+@interface ClassificationViewController ()<UITableViewDataSource,UITableViewDelegate>
+@property (strong ,nonatomic)NSArray *letfArray;
+@property (strong ,nonatomic)NSArray *rightArray;
+@property (assign ,nonatomic)NSInteger leftSelectRow;
+@property (assign ,nonatomic)NSInteger rightSelectRow;
+
+@property (strong ,nonatomic)NSString *titleStr;
+
+@end
+
+@implementation ClassificationViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self initUI];
+}
+
+- (void)initUI {
+    self.title = NSLocalizedString(@"分类", nil);
+    [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
+    self.letfArray = @[@"电脑&周边",@"精选市场",@"女装/内衣",@"男装/运动/户外"];
+    self.rightArray = @[@"笔记本电脑",@"平板电脑",@"桌上型电脑"];
+    
+    _titleStr = self.letfArray[0];
+    
+    [self.leftTableView registerNib:[UINib nibWithNibName:@"LeftTableViewCell" bundle:nil] forCellReuseIdentifier:@"LeftTableViewCell"];
+    [self.rightTableView registerNib:[UINib nibWithNibName:@"RightTableViewCell" bundle:nil] forCellReuseIdentifier:@"RightTableViewCell"];
+    
+    self.leftTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.rightTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+}
+
+- (void)selectLeftCell:(UIButton *)sender {
+    self.leftSelectRow = sender.tag;
+    NSLog(@"点击啦 - %@",self.letfArray[sender.tag]);
+    _titleStr = self.letfArray[sender.tag];
+    [self.leftTableView reloadData];
+}
+
+- (void)selectRightCell:(UIButton *)sender {
+    self.rightSelectRow = sender.tag;
+    [self.rightTableView reloadData];
+}
+
+#pragma mark ---tableView delegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (tableView == self.leftTableView) {
+        return self.letfArray.count;
+    } else {
+        return self.rightArray.count;
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView == self.leftTableView) {
+        LeftTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LeftTableViewCell"];
+        [cell updateData:self.letfArray[indexPath.row]];
+        cell.contentBtn.tag = indexPath.row;
+        [cell.contentBtn removeTarget:self action:@selector(selectLeftCell:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.contentBtn addTarget:self action:@selector(selectLeftCell:) forControlEvents:UIControlEventTouchUpInside];
+        [cell updateSelectState:indexPath.row == self.leftSelectRow];
+        return cell;
+        
+    } else {
+        RightTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RightTableViewCell"];
+        [cell updateData:self.rightArray[indexPath.row]];
+        return cell;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return 50;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView == self.rightTableView) {
+        
+        NSLog(@"右边");
+        NSLog(@"点击啦 - %@",self.rightArray[indexPath.row]);
+        CPViewController * CVPView = [[CPViewController alloc]init];
+        CVPView.title = _titleStr;
+        [self.rightTableView deselectRowAtIndexPath:indexPath animated:YES];
+        self.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:CVPView animated:YES];
+        self.hidesBottomBarWhenPushed = NO;
+        [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];   // 隐藏返回按钮上的文字
+        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    }
+}
+
+@end

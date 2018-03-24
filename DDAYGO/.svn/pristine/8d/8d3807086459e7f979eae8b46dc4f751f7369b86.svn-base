@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PayPassController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRm-k4-8gb">
+                    <rect key="frame" x="133.5" y="197" width="53" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="53" id="Dpa-Yo-aNy"/>
+                        <constraint firstAttribute="height" constant="21" id="pLD-AP-7Y0"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_successful.png" translatesAutoresizingMaskIntoConstraints="NO" id="19N-gI-oq6">
+                    <rect key="frame" x="122.5" y="114" width="75" height="75"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="75" id="A9H-1a-XN5"/>
+                        <constraint firstAttribute="height" constant="75" id="Mdm-6w-emO"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="19N-gI-oq6" firstAttribute="centerX" secondItem="HRm-k4-8gb" secondAttribute="centerX" id="6aw-0a-3YI"/>
+                <constraint firstItem="19N-gI-oq6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="AGc-AR-Xf8"/>
+                <constraint firstItem="HRm-k4-8gb" firstAttribute="top" secondItem="19N-gI-oq6" secondAttribute="bottom" constant="8" symbolic="YES" id="DN0-ql-n9d"/>
+                <constraint firstItem="19N-gI-oq6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="114" id="euc-VS-GNR"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_successful.png" width="77" height="77"/>
+    </resources>
+</document>

@@ -1,0 +1,383 @@
+//
+//  ShoppingViewController.m
+//  DDAYGO
+//
+//  Created by Login on 2017/9/7.
+//  Copyright © 2017年 Summer. All rights reserved.
+//
+
+#import "ShoppingViewController.h"
+#import "PrefixHeader.pch"
+//#import "Pop-upPrefixHeader.pch"
+#import "ShoppingCell.h"
+#import "EditorViewController.h"
+#import "ConfirmViewController.h"
+@interface ShoppingViewController ()<UITableViewDelegate,UITableViewDataSource> {
+    
+    NSInteger allNum;
+    NSArray * dataArray;
+}
+
+@property(nonatomic,strong)UITableView * tableView;
+
+@end
+
+@implementation ShoppingViewController
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setUpNavgationBar];
+    [self.navigationController.navigationBar setBarTintColor:ZP_NavigationCorlor];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:ZP_textWite}];   // 更改导航栏字体颜色
+    self.title = @"购物车";
+    [self initUI];
+    dataArray = @[@{@"title":@"Valvola法莫拉天然植物萃取保加利亚玫瑰纯露200ml",@"Preferential":@"RMB100.00",@"desc":@"250ml升级装",@"Price":@"RMB80.00",@"Trademark":@"666",@"Quantiy":@"36"},
+                  
+                  @{@"title":@"Valvola法莫拉天然植物萃取保加利亚玫瑰纯露200ml",@"Preferential":@"RMB100.00",@"desc":@"250ml升级装",@"Price":@"RMB80.00",@"Trademark":@"666",@"Quantiy":@"36"},
+                  
+                  @{@"title":@"Valvola法莫拉天然植物萃取保加利亚玫瑰纯露200ml",@"Preferential":@"RMB100.00",@"desc":@"250ml升级装",@"Price":@"RMB80.00",@"Trademark":@"666",@"Quantiy":@"36"}];
+}
+/************************************************/
+//  navigationBar按钮
+- (void) setUpNavgationBar {
+    static CGFloat const kButtonWidth = 33.0f;
+    static CGFloat const kButtonHeight = 43.0f;
+    UIButton *cartButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    cartButton.frame = CGRectMake(0.0f, 0.0f, kButtonWidth, kButtonHeight);
+    cartButton.backgroundColor = [UIColor clearColor];
+    [cartButton setTitle:NSLocalizedString(@"编辑", nil) forState:UIControlStateNormal];
+    cartButton.titleLabel.font = TooBarFont;
+    [cartButton addTarget:self action:@selector(onClickedSweep:) forControlEvents:UIControlEventTouchUpInside];
+    cartButton.imageEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0);
+    UIBarButtonItem * rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:cartButton];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+}
+
+- (void)onClickedSweep:(UIButton *)sup {
+    EditorViewController * Editor = [[EditorViewController alloc]init];
+    self.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:Editor animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];   // 隐藏返回按钮上的文字
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    NSLog(@"编辑");
+}
+/************************************************/
+//   表头
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *myView = [[UIView alloc]init];
+    [myView setBackgroundColor:[UIColor whiteColor]];
+    
+//    商店选择按钮
+    self.Shopchoosebuttom = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.Shopchoosebuttom setImage:[UIImage imageNamed:@"ic_Shopping_Choice_normal"] forState:UIControlStateNormal];
+    [self.Shopchoosebuttom setImage:[UIImage imageNamed:@"ic_Shopping_Choice_pressed"] forState:UIControlStateSelected];
+    self.Shopchoosebuttom.layer.masksToBounds = YES;
+    self.Shopchoosebuttom.layer.cornerRadius = self.Shopchoosebuttom.frame.size.height/2;
+    self.Shopchoosebuttom.layer.borderColor = [UIColor clearColor].CGColor;
+    self.Shopchoosebuttom.layer.borderWidth = 1;
+    [self.Shopchoosebuttom addTarget:self action:@selector(ShopClick:) forControlEvents:UIControlEventTouchUpInside];
+    [myView addSubview:self.Shopchoosebuttom];
+    [self.Shopchoosebuttom mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(myView).offset(5);
+        make.bottom.equalTo(myView).offset(-6);
+    }];
+
+//    店铺名称
+    UILabel * merchantsLabel = [UILabel new];
+    merchantsLabel.textAlignment = NSTextAlignmentLeft;
+    merchantsLabel.textColor = [UIColor blackColor];
+    merchantsLabel.text = NSLocalizedString(@"阿芙专卖店", nil);
+    merchantsLabel.font = TooBarFont;
+    [myView addSubview:merchantsLabel];
+    [merchantsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(myView).offset(30);
+        make.bottom.equalTo(myView).offset(-10);
+        make.right.equalTo(myView).offset(+50); // 右边
+    }];
+//    横线
+    UIView * view0 = [UIView new];
+    view0.backgroundColor = ZP_Graybackground;
+    [myView addSubview:view0];
+    [view0 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(myView).offset(5);  // 左
+        make.right.equalTo(myView).offset(ZP_Width); // 长
+        make.bottom.equalTo(myView).offset(-1); // 下
+        make.height.mas_equalTo(1); // 高
+    }];
+    return myView;
+}
+//  设置表头高度
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    
+    return 35;
+}
+
+/************************************************/
+
+- (void)initUI {
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 10, ZP_Width, ZP_height-80) style:UITableViewStylePlain];
+    self.tableView.backgroundColor = ZP_Graybackground;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.separatorStyle = NO;
+    [self.view addSubview:self.tableView];
+    
+//    注册
+    [self.tableView registerClass:[ShoppingCell class] forCellReuseIdentifier:@"shoppingCell"];
+    UIView * bottomView = [UIView new];
+    bottomView.backgroundColor = ZP_textWite;
+    [self.view addSubview:bottomView];
+    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view).offset(-50); // 下边
+        make.left.equalTo(self.view).offset(0); // 左边
+        make.right.equalTo(self.view).offset(0); // 右边
+        make.height.mas_equalTo(50); // 高度
+    }];
+//   全选按钮
+    self.AllButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.AllButton.layer.masksToBounds = YES;
+    self.AllButton.layer.cornerRadius = self.AllButton.frame.size.height/2;
+    self.AllButton.layer.borderColor = [UIColor clearColor].CGColor;
+    self.AllButton.layer.borderWidth = 1;
+    [self.AllButton setTitle:NSLocalizedString(@"全选", nil) forState:UIControlStateNormal];
+    self.AllButton.titleLabel.font = TooBarFont;
+    [self.AllButton setTitleColor:TypefaceColor forState:UIControlStateNormal];
+    [self.AllButton addTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.AllButton setImage:[UIImage imageNamed:@"ic_Shopping_Choice_normal"] forState:UIControlStateNormal];
+    [self.AllButton setImage:[UIImage imageNamed:@"ic_Shopping_Choice_pressed"] forState:UIControlStateSelected];
+    [bottomView addSubview:self.AllButton];
+    self.AllButton = self.AllButton;
+    [self.AllButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(5); // 左边
+        make.bottom.equalTo(self.view).offset(-65); // 下边
+        make.width.mas_offset(55);
+        make.height.mas_offset(20);
+    }];
+    
+//    合计
+    UILabel * StatisticsLabel = [UILabel new];
+    StatisticsLabel.textAlignment = NSTextAlignmentLeft;
+    StatisticsLabel.text = NSLocalizedString(@"合计", nil);
+    StatisticsLabel.textColor = TypefaceColor;
+    StatisticsLabel.font = TooBarFont;
+    [bottomView addSubview:StatisticsLabel];
+    [StatisticsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(110); // 左边
+        make.bottom.equalTo(self.view).offset(-80); // 下
+    }];
+    _StatisticsLabel = StatisticsLabel;
+    
+//    总金额
+    UILabel * PriceLabel = [UILabel new];
+    PriceLabel.textAlignment = NSTextAlignmentLeft;
+    PriceLabel.textColor = TypefaceColor;
+    PriceLabel.text = @"RMB";
+    PriceLabel.font = TooBarFont;
+    [bottomView addSubview:PriceLabel];
+    [PriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(145);
+        make.bottom.equalTo(self.view).offset(-80);
+    }];
+    _PriceLabel = PriceLabel;
+    
+//    结算按钮
+    UIButton * ClearingBut = [UIButton new];
+    ClearingBut.backgroundColor = ZP_pricebackground;
+    [ClearingBut setTitle:NSLocalizedString(@"结算", nil) forState:UIControlStateNormal];
+    ClearingBut.titleLabel.font = TooBarFont;
+    [ClearingBut addTarget:self action:@selector(ClearingBut:) forControlEvents:UIControlEventTouchUpInside];
+    [bottomView addSubview:ClearingBut];
+    [ClearingBut mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(240);  //左边
+        make.right.equalTo(self.view).offset(0); // 右边
+        make.bottom.equalTo(self.view).offset(-50); //下边
+        make.height.mas_equalTo(50);
+    }];
+    _ClearingBut = ClearingBut;
+}
+//  全选
+- (void)selectClick:(UIButton *)sender {
+    
+    sender.selected = !sender.selected;
+    if (self.AllButton == sender ) {
+        for (int i = 0; i < dataArray.count; i ++) {
+            ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+            cell.buttom.selected = sender.selected;
+        }
+    } else {
+        
+        ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:sender.tag inSection:0]];
+        cell.buttom.selected = sender.selected;
+    }
+    
+    [self updateData];
+    
+}
+//  店铺选择按钮
+- (void)ShopClick:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if (self.Shopchoosebuttom == sender) {
+        for (int i = 0; i < dataArray.count; i ++) {
+            ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+            cell.buttom.selected = sender.selected;
+        }
+    } else {
+        ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:sender.tag inSection:0]];
+        cell.buttom.selected = sender.selected;
+    }
+    
+    [self updateDataa];
+}
+- (void)updateData {
+//   更新选中数量
+    NSInteger count = 0;
+    NSInteger data = 0;
+    NSInteger dataCount = 0;
+    for (int i = 0; i < dataArray.count; i ++) {
+        ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        if (cell.buttom.selected ) {
+            NSArray *array = [cell.PriceLabel.text componentsSeparatedByString:@"RMB"];
+            data += ([array.lastObject integerValue] * [cell.QuantityLabel.text integerValue]);
+            dataCount += [cell.QuantityLabel.text integerValue];
+            count ++;
+        }
+    }
+    if (count == dataArray.count) {
+        self.AllButton.selected = YES;
+        self.Shopchoosebuttom.selected = YES;
+    } else {
+        self.AllButton.selected = NO;
+        self.Shopchoosebuttom.selected = NO;
+    }
+//   更新合计数据
+    self.PriceLabel.text = [@(data) stringValue];
+    [self.ClearingBut setTitle:[NSString stringWithFormat:@"结算(%ld)",(long)dataCount] forState: UIControlStateNormal];
+}
+
+- (void)updateDataa {
+//   更新选中数量
+    NSInteger count = 0;
+    NSInteger data = 0;
+    NSInteger dataCount = 0;
+    for (int i = 0; i < dataArray.count; i ++) {
+        
+        ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        if (cell.buttom.selected ) {
+            
+            NSArray *array = [cell.PriceLabel.text componentsSeparatedByString:@"RMB"];
+            data += ([array.lastObject integerValue] * [cell.QuantityLabel.text integerValue]);
+            dataCount += [cell.QuantityLabel.text integerValue];
+            count ++;
+        }
+    }
+    
+    if (count == dataArray.count) {
+        
+        self.Shopchoosebuttom.selected = YES;
+        
+    } else {
+    
+        self.Shopchoosebuttom.selected = NO;
+        
+    }
+//   更新合计数据
+    self.PriceLabel.text = [@(data) stringValue];
+    [self.ClearingBut setTitle:[NSString stringWithFormat:@"结算(%ld)",(long)dataCount] forState: UIControlStateNormal];
+    allNum = dataCount;
+}
+//  结算按钮
+- (void)ClearingBut:(UIButton *)sender {
+ 
+    if ([self YESOrNoPush]) {
+        
+        ConfirmViewController * Confirm = [[ConfirmViewController alloc]init];
+        
+        self.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:Confirm animated:YES];
+        self.hidesBottomBarWhenPushed = NO;
+        [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];   // 隐藏返回按钮上的文字
+        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    }else {
+        
+//  声明一个 UILabel 对象
+        UILabel * tipLabel = [UILabel new];
+//  设置提示内容
+        [tipLabel setText: NSLocalizedString(@"您还没有选择宝贝哦", nil)];
+        tipLabel.backgroundColor = [UIColor blackColor];
+        tipLabel.layer.cornerRadius = 5; // 圆角
+        tipLabel.font = [UIFont systemFontOfSize:15];
+        tipLabel.layer.masksToBounds = YES;
+        tipLabel.textAlignment = NSTextAlignmentCenter;
+        tipLabel.textColor = [UIColor whiteColor];
+        [self.view addSubview:tipLabel];
+        [tipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.view).offset(ZP_Width / 2 - 50);
+            make.bottom.equalTo(self.view).offset(-220);
+            make.width.mas_offset(145);
+            make.height.mas_offset(30);
+        }];
+//  设置时间和动画效果
+        [UIView animateWithDuration:2.0 animations:^{
+            tipLabel.alpha = 0.0;
+        } completion:^(BOOL finished) {
+//  动画完毕从父视图移除
+            [tipLabel removeFromSuperview];
+        }];
+        NSLog(@"没选选中，不跳");
+    }
+}
+
+- (BOOL)YESOrNoPush {
+    for (int i = 0; i < dataArray.count; i ++) {
+        ShoppingCell * cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        if (cell.buttom.selected) {
+            return YES;
+        }
+    }
+    return NO;
+}
+#pragma mark tableviewdelegate
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return dataArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    ShoppingCell * cell = [tableView dequeueReusableCellWithIdentifier:@"shoppingCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;  //取消Cell点击变灰效果
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    NSDictionary * dic = dataArray[indexPath.row];
+    cell.buttom.tag = indexPath.row;
+    [cell.buttom removeTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.buttom addTarget:self action:@selector(selectClick:) forControlEvents:UIControlEventTouchUpInside];
+    [cell cellWithDic:dic];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return 100;
+}
+
+- (void)didReceiveMemoryWarning {
+    
+    [super didReceiveMemoryWarning];
+}
+
+
+@end

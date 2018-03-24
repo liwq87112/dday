@@ -1,0 +1,21 @@
+
+/* Class = "UIButton"; normalTitle = "已取消"; ObjectID = "9xe-5F-Tdu"; */
+"9xe-5F-Tdu.normalTitle" = "已取消";
+
+/* Class = "UIButton"; normalTitle = "待付款"; ObjectID = "GrF-VO-73i"; */
+"GrF-VO-73i.normalTitle" = "待付款";
+
+/* Class = "UIButton"; normalTitle = "已完成"; ObjectID = "HuK-p0-PcS"; */
+"HuK-p0-PcS.normalTitle" = "已完成";
+
+/* Class = "UIButton"; normalTitle = "待发货"; ObjectID = "QIm-H0-Nsv"; */
+"QIm-H0-Nsv.normalTitle" = "待发货";
+
+/* Class = "UIButton"; normalTitle = "待退货"; ObjectID = "j2d-Wu-Iwa"; */
+"j2d-Wu-Iwa.normalTitle" = "待退货";
+
+/* Class = "UIButton"; normalTitle = "待换货"; ObjectID = "npz-Vm-dTH"; */
+"npz-Vm-dTH.normalTitle" = "待换货";
+
+/* Class = "UIButton"; normalTitle = "已发货"; ObjectID = "xdr-R0-rj6"; */
+"xdr-R0-rj6.normalTitle" = "已发货";

@@ -1,0 +1,19 @@
+//
+//  CPCollectionViewCell.h
+//  DDAYGO
+//
+//  Created by Login on 2017/9/14.
+//  Copyright © 2017年 Summer. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface CPCollectionViewCell : UICollectionViewCell
+@property (nonatomic, strong) UIImageView * imageView;
+@property (nonatomic, strong) UILabel * headerlabel;
+@property (nonatomic, strong) UILabel * preferentialLabel;
+@property (nonatomic, strong) UILabel * priceLabel;
+@property (nonatomic, strong) UILabel * TrademarkLabel;
+
+- (void)cellWithdic:(NSDictionary *)dic;
+@end

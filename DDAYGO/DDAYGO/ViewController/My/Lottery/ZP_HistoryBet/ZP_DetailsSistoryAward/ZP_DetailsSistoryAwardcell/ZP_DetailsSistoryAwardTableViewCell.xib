@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="ZP_DetailsSistoryAwardTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="ZP_DetailsSistoryAwardTableViewCell" rowHeight="40" id="KGk-i7-Jjw" customClass="ZP_DetailsSistoryAwardTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="34.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihP-Et-YDV">
+                        <rect key="frame" x="46" y="5" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="DxJ-Ts-WEO"/>
+                            <constraint firstAttribute="height" constant="25" id="N81-8X-b02"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <state key="normal" title="5" backgroundImage="bg_white_ball">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcJ-Qs-EIN">
+                        <rect key="frame" x="84" y="5" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="YkM-ej-E6s"/>
+                            <constraint firstAttribute="height" constant="25" id="lCR-vY-aIe"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <state key="normal" title="5" backgroundImage="bg_white_ball">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6IN-Ia-Etc">
+                        <rect key="frame" x="122" y="5" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="B0P-K5-xB6"/>
+                            <constraint firstAttribute="width" constant="25" id="hn2-lc-kul"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <state key="normal" title="5" backgroundImage="bg_white_ball">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3y-l4-P1d">
+                        <rect key="frame" x="160" y="5" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="47F-19-L5o"/>
+                            <constraint firstAttribute="width" constant="25" id="fEe-0f-qv4"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <state key="normal" title="5" backgroundImage="bg_white_ball">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69a-g3-rY8">
+                        <rect key="frame" x="198" y="5" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="FI9-cL-cDn"/>
+                            <constraint firstAttribute="width" constant="25" id="Vh7-SW-lsx"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <state key="normal" title="5" backgroundImage="bg_red_ball">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGD-gB-Yy2">
+                        <rect key="frame" x="13" y="5" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="JHN-tK-vXR"/>
+                            <constraint firstAttribute="height" constant="25" id="vzY-oJ-3bE"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <state key="normal" title="5" backgroundImage="bg_white_ball">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="6IN-Ia-Etc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="128-nV-SgU"/>
+                    <constraint firstItem="zGD-gB-Yy2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="2cy-SZ-cUO"/>
+                    <constraint firstItem="DcJ-Qs-EIN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Iie-60-7QJ"/>
+                    <constraint firstItem="69a-g3-rY8" firstAttribute="leading" secondItem="T3y-l4-P1d" secondAttribute="trailing" constant="13" id="JT4-cM-ce8"/>
+                    <constraint firstItem="ihP-Et-YDV" firstAttribute="leading" secondItem="zGD-gB-Yy2" secondAttribute="trailing" constant="8" id="JlQ-ej-WUG"/>
+                    <constraint firstItem="ihP-Et-YDV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Qn8-pZ-cQy"/>
+                    <constraint firstItem="69a-g3-rY8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="UyK-gP-Tjh"/>
+                    <constraint firstItem="T3y-l4-P1d" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="WEe-s9-vxT"/>
+                    <constraint firstItem="6IN-Ia-Etc" firstAttribute="leading" secondItem="DcJ-Qs-EIN" secondAttribute="trailing" constant="13" id="Xf8-AU-FPU"/>
+                    <constraint firstItem="zGD-gB-Yy2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="gqa-I0-Jee"/>
+                    <constraint firstItem="DcJ-Qs-EIN" firstAttribute="leading" secondItem="ihP-Et-YDV" secondAttribute="trailing" constant="13" id="pAG-ip-2MW"/>
+                    <constraint firstItem="T3y-l4-P1d" firstAttribute="leading" secondItem="6IN-Ia-Etc" secondAttribute="trailing" constant="13" id="qgY-W3-5hm"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="butt1" destination="zGD-gB-Yy2" id="JXK-wt-hKI"/>
+                <outlet property="butt2" destination="ihP-Et-YDV" id="8hN-Hp-k7j"/>
+                <outlet property="butt3" destination="DcJ-Qs-EIN" id="R70-d5-wNq"/>
+                <outlet property="butt4" destination="6IN-Ia-Etc" id="V1L-w9-JdP"/>
+                <outlet property="butt5" destination="T3y-l4-P1d" id="4C1-HV-VPU"/>
+                <outlet property="butt6" destination="69a-g3-rY8" id="ytL-6v-TFu"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="54"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bg_red_ball" width="32" height="32"/>
+        <image name="bg_white_ball" width="32" height="32"/>
+    </resources>
+</document>
